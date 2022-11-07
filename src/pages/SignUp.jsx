@@ -42,16 +42,16 @@ const SignUp = () => {
 
   return (
     <div className='w-[90%] h-[95vh] mt-4 shadow-md rounded-md border-2 border-[#968f8f44]'>
-      <div className='w-full  h-full flex flex-col md:flex-row'>
+      <div className='w-full h-full flex flex-col md:flex-row'>
       <img src={Stone} alt ='' className='h-[250px] md:w-[50%] md:h-auto bg-[#15f1a8] flex flex-col'/>
       <div className='md:w-[50%]  h-full flex flex-col items-center gap-5 justify-center bg-[#292828]'>
        <div className='text-xl md:-mt-[100px] text-[#121212c9] -mt-[150px] h-[80px]'>
         <div className='w-[80px] h-[80px] mt-[150px]'>
             <img src={User} alt=""  className='w-[50px] h-[50px]'/>  
         </div>
-      <div className='w-[80%] -mt-8 -ml-[4px] opacity-80 flex flex-col  z-20  cursor-pointer '>
+      <div className='w-[80%] -mt-10 -ml-[4px] opacity-80 flex flex-col  z-20  cursor-pointer '>
         <img src={Camera} alt="" className='w-[30px] h-[20px] ml-[15px]  cursor-pointer bg-blue-200'/>
-        <div className='absolute w-[30px] h-[20px]  opacity-0 cursor-pointer'>
+        <div className='w-[30px] h-[20px] -mt-5  opacity-0 cursor-pointer'>
         <FileBase64
         type="file"
         multiple={false}   
@@ -61,7 +61,7 @@ const SignUp = () => {
       </div>    
        </div>
       
-       <form onSubmit={onSubmit} className='w-[400px] mt-4 md:mt-16 h-[95%] items-center flex flex-col '>
+       <form onSubmit={onSubmit} className='w-[350px] md:w-[400px] mt-16 md:mt-16 h-[95%] items-center flex flex-col '>
        <div className='h-[60px] w-full flex justify-center items-center'>
        </div>
        
