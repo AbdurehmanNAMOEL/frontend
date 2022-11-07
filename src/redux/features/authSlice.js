@@ -11,7 +11,7 @@ axios.interceptors.request.use((req)=>{
 export const createAccount =createAsyncThunk("user/createAccount",async({userData,toast,navigate})=>{
    
     try {
-         const response = await axios.post('http://localhost:4000/home/signup',userData)
+         const response = await axios.post('https://seller-site.herokuapp.com/home/signup',userData)
          toast.success(`welcome ${userData.name}`)
          navigate('/')
          return response.data
@@ -22,7 +22,7 @@ export const createAccount =createAsyncThunk("user/createAccount",async({userDat
 
 export const logIn =createAsyncThunk('user/logIn',async({userData,toast,navigate})=>{
     try {
-         const response = await axios.post('http://localhost:4000/home/signIn',userData)
+         const response = await axios.post('https://seller-site.herokuapp.com/home/signIn',userData)
          toast.success(`welcome ${userData.name}`)
          navigate('/')
          return response.data
@@ -33,7 +33,7 @@ export const logIn =createAsyncThunk('user/logIn',async({userData,toast,navigate
 
 export const getSeller =createAsyncThunk('user/getUser',async()=>{
     try {
-         const response = await axios.get('http://localhost:4000/home/getUser')
+         const response = await axios.get('https://seller-site.herokuapp.com/home/getUser')
          console.log(response.data)
          return response.data
         

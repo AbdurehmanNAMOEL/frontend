@@ -10,7 +10,7 @@ axios.interceptors.request.use((req)=>{
 
 export const uploadStone =createAsyncThunk('gemstone/uploadStone',async({stoneData,toast})=>{
     try {
-         const response = await axios.post('http://localhost:4000/home/upload',stoneData)
+         const response = await axios.post('https://seller-site.herokuapp.com/home/upload',stoneData)
          toast.success('successfully created')
          return response.data
     } catch (error) {
@@ -20,7 +20,7 @@ export const uploadStone =createAsyncThunk('gemstone/uploadStone',async({stoneDa
 
 export const getStone =createAsyncThunk('gemstone/getStone',async()=>{
     try {
-         const response = await axios.get('http://localhost:4000/home/getStone')
+         const response = await axios.get('https://seller-site.herokuapp.com/home/getStone')
          return response.data
     } catch (error) {
         console.log(error.message)
@@ -31,7 +31,7 @@ export const getStone =createAsyncThunk('gemstone/getStone',async()=>{
 export const deleteStone =createAsyncThunk('gemstone/deleteStone',async({id,toast})=>{
     console.log(id,'hello')
     try {
-         const response = await axios.delete(`http://localhost:4000/home/delete/${id}`)
+         const response = await axios.delete(`https://seller-site.herokuapp.com/home/delete/${id}`)
          toast.success('successfully deleted')
          return response.data
     } catch (error) {
@@ -42,7 +42,7 @@ export const deleteStone =createAsyncThunk('gemstone/deleteStone',async({id,toas
 export const editedStone =createAsyncThunk('gemstone/editedStone',async({id,newData,toast,navigate})=>{
    
     try {
-         const response = await axios.put(`http://localhost:4000/home/edit/${id}`,newData)
+         const response = await axios.put(`https://seller-site.herokuapp.com/home/edit/${id}`,newData)
          toast.success('successfully edited')
          navigate('/')
          return response.data
