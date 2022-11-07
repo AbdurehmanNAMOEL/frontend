@@ -1,4 +1,8 @@
-.container:hover .mini-menu{
-  display: flex;
-  flex-direction: column;
+span:hover{
+  background-color: rgb(9, 231, 231);
+  transition: all 0.7s;
+  -webkit-transition: all 0.7s;
+  -moz-transition: all 0.7s;
+  -ms-transition: all 0.7s;
+  -o-transition: all 0.7s;
 }

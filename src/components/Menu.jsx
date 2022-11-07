@@ -3,14 +3,18 @@ import { Link } from 'react-router-dom'
 import {FaTimes,FaBars,FaSun,FaMoon} from 'react-icons/fa'
 import {motion} from 'framer-motion'
 import Logo from '../images/ethiopiaLogo.jpg'
-
-const Menu = ({isMenu,displayMenuBar,path,buttonLabel,toggleClicked,handleToggle}) => {
+import User from '../images/user.gif'
+import './miniContainer.css'
+const Menu = ({isMenu,displayMenuBar,profileImage,toggleClicked,handleToggle}) => {
   return (
-    <div className='flex md:hidden  flex-row w-full items-center justify-between'>
+<div className='flex md:hidden  flex-row w-full items-center justify-between'>
   <div className="w-40">
        <img src={Logo} alt="" className='h-16' />
    </div>
-   
+    <div className='cursor-pointer -ml-[150px] h-[70px] flex justify-center items-center hover:text-[#4cebe3]'>
+          <img src={profileImage ? profileImage:User} alt="" className='w-[40px] h-[40px] rounded-full border-2 border-[#1212129f]' />
+     </div>
+
   <div>
     <div className="text-md mr-8 cursor-pointer">
        { isMenu ? <FaTimes className={`${toggleClicked ? 'text-[white]' : 'text-[#121212]'}`}
@@ -21,31 +25,17 @@ const Menu = ({isMenu,displayMenuBar,path,buttonLabel,toggleClicked,handleToggle
     </div>
 
     { isMenu && <motion.div 
-               className=" fixed top-[65px] right-0 flex flex-col w-36 h-68 bg-white shadow-md gap-2"
-               initial={{x:200}}
-               animate={{x:0}}
+               className=" rounded-sm fixed  gap-4 top-[75px] right-0 flex justify-center items-center flex-col w-[70%] h-[300px] bg-white shadow-md"
+               initial={{x:-200}}
+               animate={{x:-105}}
                transition={{type:'spring'}}
     >
-     <Link to={'/'} className='cursor-pointer bg-green-400 w-full h-8 hover:bg-green-300 '>
-          <label className='text-center ml-2  text-black p-4 mt-10' htmlFor="#Home">Home</label>
-     </Link>
-      
-       <Link to={'/upload'} className='w-full hover:bg-green-300 h-8'>
-          <label className='cursor-pointer text-center ml-2  text-black p-4 mt-10' htmlFor="#Upload">Upload</label>
-     </Link>
-      
-      
-     <Link to={'/contactUs'} className='w-full hover:bg-green-300 h-8'>
-          <label className='cursor-pointer text-center ml-2  text-black p-4 mt-10' htmlFor="#Home">Contact Us</label>
-     </Link>
-
-     <Link to={'/aboutUs'} className='w-full hover:bg-green-300 h-8'>
-          <label className='cursor-pointer text-center ml-2  text-black p-4 mt-10' htmlFor="#Home">About Us</label>
-     </Link>
-
-      <Link to={'/aboutUs'} className='w-full hover:bg-green-300 h-8'>
-          <label className='cursor-pointer text-center ml-2  text-black p-4 mt-10' htmlFor="#Home">LogOut</label>
-     </Link>
+     <span  className='cursor-pointer flex justify-start items-center w-full h-12 hover:bg-green-300'><Link to={'/'} className='ml-[30px]'>Home</Link></span>
+     <span   className='bg-white cursor-pointer justify-start flex  items-center w-full h-8 hover:bg-green-300 '><Link to={'/upload'} className='ml-[30px]'>Upload</Link></span>
+     <span  className='cursor-pointer flex justify-start items-center w-full hover:bg-green-300 h-8'><Link  to={'/contactUs'} className='ml-[30px]'>Contact Us</Link></span>
+     <span   className='cursor-pointer flex justify-start items-center w-full hover:bg-green-300 h-8'><Link to={'/aboutUs'} className='ml-[30px]'>About Us</Link></span>
+     <span   className='cursor-pointer flex justify-start items-center w-full hover:bg-green-300 h-8'><Link to={'/profile'} className='ml-[30px]'>ProFile</Link></span>
+     <span   className='cursor-pointer flex justify-start items-center w-full hover:bg-green-300 h-8'><Link to={'/login'} className='ml-[30px]'>LogOut</Link></span>
   </motion.div>}
   </div>
 </div>

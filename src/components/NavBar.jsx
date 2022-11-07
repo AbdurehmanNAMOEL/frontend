@@ -57,6 +57,7 @@ const Navbar2 = ({email,profileImage}) => {
   <Menu
   isMenu={isMenu}
   displayMenuBar={displayMenuBar}
+  profileImage={profileImage}
  />
     </div>
   )
