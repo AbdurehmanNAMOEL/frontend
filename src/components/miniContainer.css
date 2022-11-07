@@ -1,0 +1,4 @@
+.container:hover .mini-menu{
+  display: flex;
+  flex-direction: column;
+}

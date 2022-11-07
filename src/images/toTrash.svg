@@ -1,0 +1,16 @@
+<svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 200px; height: 200px;"><style>
+     .line-bin1 {animation:line-bin1-lid 4s infinite; transform-origin: 24px 48px;}
+     @keyframes line-bin1-lid {
+         0%{transform: rotate(0);}
+         20%{transform: rotate(0);}
+         40%{transform: rotate(-40deg);}
+         60%{transform: rotate(-40deg);}
+         80%{transform: rotate(0);}
+         100%{transform: rotate(0);}
+     }
+     @media (prefers-reduced-motion: reduce) {
+         .line-bin1 {
+             animation: none;
+         }
+     }
+    </style><path class="stroke1 fill1" d="M28 48H72V94C72 96.2091 70.2091 98 68 98H32C29.7909 98 28 96.2091 28 94V48Z" fill="#fff" stroke="rgba(230,22,22,1)" stroke-width="2px" style="animation-duration: 4s;"></path><g class="line-bin1 stroke2 fill2" style="animation-duration: 4s;"><rect class="stroke2" x="37" y="33" width="25" height="13" rx="2" fill="white" stroke="rgba(226,26,26,1)" stroke-width="2px"></rect><rect class="stroke2 fill2" x="24" y="42" width="51" height="8" rx="2" fill="#fff" stroke="rgba(226,26,26,1)" stroke-width="2px"></rect></g><line class="stroke1" x1="40" y1="56" x2="40" y2="90" stroke="rgba(230,22,22,1)" stroke-width="2px" style="animation-duration: 4s;"></line><line class="stroke1" x1="50" y1="56" x2="50" y2="90" stroke="rgba(230,22,22,1)" stroke-width="2px" style="animation-duration: 4s;"></line><line class="stroke1" x1="60" y1="56" x2="60" y2="90" stroke="rgba(230,22,22,1)" stroke-width="2px" style="animation-duration: 4s;"></line></svg>
