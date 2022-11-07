@@ -130,8 +130,8 @@ useEffect(()=>{
         <img src={newImage} alt="TourImage"  className='w-full h-full border-none flex justify-center items-center'/>
        </div>
        
-        <div onClick={id ? handleEdit :handleStoneUpload}
-         className='w-[80%] md:w-[53%] h-10 cursor-pointer mt-2 bg-blue-400 flex justify-center items-center text-white font-bold hover:bg-blue-500'>{id ? 'Edit':'Submit'}</div>
+        <div  onClick={id ? handleEdit :handleStoneUpload}
+         className='w-[80%] md:w-[53%]  mb-4 md:mb-0 h-10 cursor-pointer mt-2 bg-blue-400 flex justify-center items-center text-white font-bold hover:bg-blue-500'>{id ? 'Edit':'Submit'}</div>
      </div>
      </div>
     </div>
