@@ -70,22 +70,21 @@ useEffect(()=>{
   },[id])
   
   return (
-    <div className='w-full h-[100vh]  flex flex-col '>
+    <div className='w-full h-[100vh] flex flex-col '>
     <NavBar
      path={'/'}
      buttonLabel={'Home'} 
      email={user?.email}
      profileImage={user?.profileImage}
      />
-     <div className='w-full  h-[100vh] flex flex-col md:flex-row'>
-      <div className='w-full h-[200px] mt-[100px] md:mt-0 md:w-[80%] md:h-[100vh]  flex justify-center items-center flex-col'>
+     <div className='w-full h-[100vh] flex flex-col md:flex-row'>
+      <div className='w-full h-[200px] mt-[80px] md:mt-0 md:w-[80%] md:h-[100vh]  flex justify-center items-center flex-col'>
           <h1 className='text-white text-xl font-bold mb-4'>{id?'Please edit now': "Please Upload here"}</h1>
-          <img src={id?Edit:Load} alt=""  className='w-[50%] h-[150px] md:h-[250px] md:w-[50%]'/>
+          <img src={id?Edit:Load} alt=""  className='-mt-40px md:mt-0 w-[50%] h-[80px] md:h-[250px] md:w-[50%]'/>
     </div>
      <div className='w-full h-[100vh] -mt-10 md:mt-0 border-2 border-[#1212122f] md:w-full md:h-full shadow-md flex flex-col justify-center items-center'>
-       <span className='w-full h-[50px] mt-16 md:mt-[50px] text-xl flex justify-center items-center text-[#b8adadd5]'>{id ? 'EditTour':'AddTour'}</span>
-        <div className='w-[80%]  h-[100px] md:w-[70%] md:h-16 flex flex-col justify-center items-center md:flex-row'>
-        
+       <span className='w-full h-[50px] mt-5 md:mt-[50px] text-xl flex justify-center items-center text-[#b8adadd5]'>{id ? 'EditTour':'AddTour'}</span>
+      <div className='w-[80%]  h-[100px] md:w-[70%] md:h-16 flex flex-col justify-center items-center md:flex-row'>  
        <select
         onChange={(e)=>setTitle(e.target.value)} 
         value={title}  
@@ -109,7 +108,7 @@ useEffect(()=>{
         />
        </div>
 
-       <div className='w-[80%] md:w-[53%] h-[40%]'>
+       <div className='w-[80%] mb-10 md:mb-0 md:w-[53%] h-[40%]'>
         <textarea 
         onChange={(e)=>setDesc(e.target.value)} 
         value={desc} 
@@ -118,7 +117,7 @@ useEffect(()=>{
         />
        </div>
 
-       <div className='-mt-24 w-[80%] md:w-[53%] h-[50px] flex justify-start items-center md:-mt-20'>
+       <div className='-mt-20 mb-4 md:mb-0 w-[80%] md:w-[53%] h-[50px] flex justify-start items-center md:-mt-20'>
        <FileBase64
         type="file"
         multiple={false}
