@@ -79,7 +79,7 @@ useEffect(()=>{
 
         </section>
          <h1  data-aos="fade-right" className='text-4xl mb-12 mt-12 text-[#12121285]'>Some of Our finest gemstone</h1>
-         <section  className='stone-container w-full h-[200vh]  bg-red-400 grid grid-cols-4 grid-flow-row place-items-center'>
+         <section  className='stone-container w-full h-[200vh]   grid grid-cols-4 grid-flow-row place-items-center'>
              {
                 gemStoneCategories.map(data=>
                 <SampleCard
