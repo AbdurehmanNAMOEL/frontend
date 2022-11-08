@@ -29,7 +29,7 @@ function SampleCard({title,image,id,price,toggleClicked,data, handleModal}) {
           online collection of natural </p>
       </div>
 
-      <div className="w-full text-center -mt-[13%]">
+      <div className="w-full text-center -mt-[8%]">
         <h4 className={`${toggleClicked ? 'text-[white]' : 'text-[#121212]'}`}>price:{price}</h4>
       </div>
 

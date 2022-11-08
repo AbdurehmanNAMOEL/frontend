@@ -4,18 +4,27 @@
 
        .stone-container{
         grid-template-columns: 60% ;
-        grid-template-rows: 30% 30% 30% 30% 30% 30% 30% 30%  30% 30% 30% 30%;
+        grid-template-rows: 10% 10% 10% 10% 10% 10% 10% 10%  10% 10% 10% 10%;
         overflow-y: scroll;
    
+    }
+    .stone-title{
+        font-size: 22px;
+        color: #121212;
     }
 }
 
 @media screen and (min-width:480px) and (max-width:768px)   {
     .stone-container{
-        grid-template-columns: 45% 45%;
-        grid-template-rows: 30% 30% 30% 30% 30% 30% 30% 30%;
+        grid-template-columns: 35% 35%;
+        grid-template-rows: 16% 16% 16% 16% 16% ;
         overflow-y: scroll;
        
+    }
+    .image-collection{
+        margin-top: -70px;
+        width: 500px;
+        margin-left: 10%;
     }
    .login{
     margin-top: 0px;
@@ -23,14 +32,19 @@
    .for-more{
     margin-top: -150px;
    }
+    .stone-title{
+        color: #121212;
+    }
 }
 
 
 @media screen and (min-width : 768px) {
         .stone-container{
-         grid-template-columns: 22% 22% 22% 22% ;
-        grid-template-rows: 32% 32% 32%;
-   
-   
+         grid-template-columns: 16% 16% 16% 16% 16%;
+        grid-template-rows: 35% 35% 35%;
+
+    }
+     .stone-title{
+        color: #121212;
     } 
 }
