@@ -13,7 +13,7 @@ export const createAccount =createAsyncThunk("user/createAccount",async({userDat
     try {
          const response = await axios.post('https://seller-site.herokuapp.com/home/signup',userData)
          toast.success(`welcome ${userData.name}`)
-         navigate('/')
+         navigate('/home')
          return response.data
     } catch (error) {
        toast.error(error.response.data.error)
@@ -24,7 +24,7 @@ export const logIn =createAsyncThunk('user/logIn',async({userData,toast,navigate
     try {
          const response = await axios.post('https://seller-site.herokuapp.com/home/signIn',userData)
          toast.success(`welcome ${userData.name}`)
-         navigate('/')
+         navigate('/home')
          return response.data
     } catch (error) {
         toast.error(error.response.data.error)

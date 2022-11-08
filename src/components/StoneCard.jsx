@@ -5,6 +5,7 @@ import {toast} from 'react-toastify'
 import Trash from '../images/toTrash.svg'
 
 import { Link } from 'react-router-dom'
+
 const StoneCard = ({image,title,name,weight,desc,id}) => {
   console.log(id);
  const dispatch =  useDispatch()
@@ -12,10 +13,9 @@ const StoneCard = ({image,title,name,weight,desc,id}) => {
     const deletedStone= ()=>{
         dispatch(deleteStone({id,toast}))
     }
-    
- 
+  
   return (
-    <div className=' w-[250px] h-[400px]  mb-4 mt-4 md:w-[60%] md:h-[180px] flex flex-col md:flex-row shadow-md rounded-md border-2 border-[#33333356]'>
+    <div  className=' w-[250px] h-[400px] mb-4 md:w-[60%] md:h-[180px] flex flex-col md:flex-row shadow-md rounded-md border-2 border-[#e7cece56]'>
      <div className='w-full h-[40%] md:w-[30%] md:h-full'>
         <img src={image} alt=""  className='w-full h-full'/>
      </div>

@@ -6,10 +6,13 @@ import {toast} from 'react-toastify'
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { useState } from 'react';
+let name;
 const ContactUs = () => {
   const form = useRef()
-  const navigate = useNavigate()
   const {user} = useSelector(state=>state.auth)
+  const [firstName,setFirstName]=useState('')
+  const [lastName,setLastName]=useState('')
    const sendEmail = (e) => {
     e.preventDefault()
     emailjs.sendForm('gmail', 'template_ft3gg8b',  form.current, 'NqKFG5yFZi3hU0nnJ')
@@ -19,11 +22,14 @@ const ContactUs = () => {
            toast.error(error.text)
       });
   };
-  useEffect(()=>{
-      if(!localStorage.getItem('profile')){
-       navigate('/login')
-     } 
-  })
+ 
+useEffect(()=>{
+  if(user?.email){
+    name=user?.name
+    setFirstName(name?.split(' ')[0])
+    setLastName(name?.split(' ')[1])
+  }
+})
   return (
      <div className='flex flex-col w-full bg-[#121212]'>
     <NavBar
@@ -37,11 +43,23 @@ const ContactUs = () => {
         <h1 className='mt-[10px] text-[20px] md:mt-0 md:text-2xl text-[#121212c7] mb-[5px]'>Contact us using your email</h1>
         <div className='w-full h-[2px] bg-[#1212123d] mb-6'/>
         <div className='w-full -mt-6 md:mt-0 flex flex-col md:flex-row justify-center items-center gap-4'>
-          <input type="text" placeholder='FirstName' name="firstName" className='border-2 border-[#1212122c] h-[35px] md:h-[40px] rounded-md indent-2 w-[80%] md:w-[35%]'/>
-          <input type="text" placeholder='LastName' name='lastName' className='border-2 border-[#12121238] h-[35px] md:h-[40px] rounded-md indent-2 w-[80%] md:w-[30%]' />
+          <input  
+           type="text" 
+           placeholder='FirstName' 
+           name="firstName" 
+           className='border-2 border-[#1212122c] h-[35px] md:h-[40px] rounded-md indent-2 w-[80%] md:w-[35%]'
+           value={user.email?firstName:''}
+           />
+          <input 
+            type="text" 
+            placeholder='LastName' 
+            name='lastName' 
+            className='border-2 border-[#12121238] h-[35px] md:h-[40px] rounded-md indent-2 w-[80%] md:w-[30%]' 
+            value={user.email?lastName:''}
+            />
         </div>
         <div className='w-full flex justify-center items-center'>
-          <input type="email" placeholder='Email' name='email' className='border-2 border-[#12121238] h-[35px] md:h-[40px] rounded-md indent-2 w-[80%] md:w-[68%]' />
+          <input type="email" placeholder='Email' name='email' className='border-2 border-[#12121238] h-[35px] md:h-[40px] rounded-md indent-2 w-[80%] md:w-[68%]' value={user.email?user.email:''} />
         </div>
         <div className='w-full h-[40%] flex justify-center items-center'>
          <textarea placeholder='Message' name='message' className='border-2 border-[#12121227] w-[80%] md:w-[68%] h-[80%] indent-2'></textarea>

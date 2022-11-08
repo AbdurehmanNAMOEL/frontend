@@ -1,0 +1,77 @@
+.card-big-container{
+    @apply w-[90%] 
+    h-[92%] 
+    border-2 
+    border-[#33333352]
+    flex 
+    flex-col 
+    rounded-md 
+    shadow-md 
+    justify-center 
+    items-center
+}
+
+.card-inner-container{
+    @apply w-full 
+    h-[60%]
+    -mt-[20%] 
+    flex 
+    flex-col 
+    justify-center 
+    items-center 
+    rounded-md 
+}
+.card-image{
+  @apply  w-[70%] 
+  h-[60%] 
+  rounded-full
+}
+.card-title{
+    @apply -mt-[12%] 
+    text-[15px] 
+    font-bold
+}
+.card-paragraph{
+    @apply text-center 
+    w-full 
+    flex 
+    flex-col 
+    h-[20%]
+}
+.card-footer-container{
+    @apply  w-full 
+    h-[22%] 
+    mt-3 
+    flex 
+    flex-col 
+    justify-center 
+    items-center
+}
+.card-buy-btn{
+    @apply w-[80%] 
+    h-16 
+    rounded-md
+  bg-green-400 
+  text-white 
+    font-bold 
+    flex 
+    justify-center 
+    items-center 
+    hover:bg-green-500
+    cursor-pointer
+}
+.card-addCart-btn{
+
+ @apply w-[80%] 
+ h-16 
+ cursor-pointer
+ text-white  
+ bg-[rgba(55,57,57,0.8)] 
+ mt-2 flex 
+ justify-center 
+ items-center 
+ text-sm 
+ rounded-md
+hover:bg-[rgba(55,57,57,1)]   
+
+}

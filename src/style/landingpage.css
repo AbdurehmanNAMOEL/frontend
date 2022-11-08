@@ -1,0 +1,37 @@
+
+
+@media screen and (min-width:220px) and (max-width:480px) {
+
+       .stone-container{
+        height: auto;
+        grid-template-columns: 60% ;
+        grid-template-rows: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
+        overflow-y: scroll;
+   
+    }
+}
+
+@media screen and (min-width:480px) and (max-width:768px)   {
+    .stone-container{
+         grid-template-columns: 45% 45%;
+        grid-template-rows: 20% 20% 20% 20% 20% 20% 20% 20%;
+        overflow-y: scroll;
+   
+    }
+   .login{
+    margin-top: 0px;
+   }
+   .for-more{
+    margin-top: -150px;
+   }
+}
+
+
+@media screen and (min-width : 768px) {
+        .stone-container{
+         grid-template-columns: 22% 22% 22% 22% ;
+        grid-template-rows: 32% 32% 32%;
+   
+   
+    } 
+}

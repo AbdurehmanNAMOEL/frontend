@@ -6,6 +6,7 @@ import AboutUsImage from '../images/about-us.svg'
 import MissionIcon from '../images/target.png'
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import Footer from '../components/Footer';
 
 const AboutUs = ({path,buttonLabel,toggleClicked,handleToggle}) => {
 
@@ -13,9 +14,7 @@ const AboutUs = ({path,buttonLabel,toggleClicked,handleToggle}) => {
    const {user} = useSelector(state=>state.auth)
   useEffect(()=>{
     Aos.init({duration:2000})
-      if(!localStorage.getItem('profile')){
-       navigate('/login')
-     } 
+    
    },[])
   return (
     <div className='flex flex-col w-full h-auto'>
@@ -95,9 +94,9 @@ const AboutUs = ({path,buttonLabel,toggleClicked,handleToggle}) => {
        <div className='w-[90%] h-[90%] flex justify-center items-center gap-10'>
        </div>
       </div>
-      <div className='mt-[5vh] w-full h-[40vh] bg-[#24252915]'>
-       Footer about Copy right
-     </div>
+     
+       <Footer/>
+   
     </div>
   )
 }

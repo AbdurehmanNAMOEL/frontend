@@ -101,7 +101,7 @@ useEffect(()=>{
 
         <input 
         type="text" 
-        placeholder='Weight' 
+        placeholder='Weight eg: 1gm' 
         className='w-full md:-mt-4  mb-3 md:mb-0 md:w-[32%] h-[32px] md:ml-3 indent-2 border-2 border-[#53535334]'
         onChange={(e)=>setWeight(e.target.value)} 
         value={weight} 
@@ -113,7 +113,7 @@ useEffect(()=>{
         onChange={(e)=>setDesc(e.target.value)} 
         value={desc} 
         className='w-full h-[60%] indent-4 border-2 border-[#12121246]' 
-        placeholder='Write your description here'
+        placeholder='Write your description here like :"This emerald has a high quality"'
         />
        </div>
 

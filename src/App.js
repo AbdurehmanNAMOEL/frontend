@@ -11,35 +11,34 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useEffect, useState} from "react";
 import { useSelector } from "react-redux";
 import Profile from "./pages/Profile";
+import LandingPage from "./pages/LandingPage";
+import Footer from "./components/Footer";
 
 function App() {
  
-   
-    const {isLoggedIn} = useSelector(state=>state.auth)
- 
+  const {isLoggedIn} = useSelector(state=>state.auth)
 
-    useEffect(()=>{
-     
-   
-    },[])
+useEffect(()=>{},[isLoggedIn])
   return (
     <div className="w-full h-auto flex justify-center items-center ">
       <BrowserRouter>
       <ToastContainer/>
       <Routes>
       <Route element={<PrivateRoutes isLoggedIn={isLoggedIn}/>}>
-      <Route path={'/'} exact  element={<Home/>}/>
-      <Route path={'/aboutUs'} exact  element={<AboutUs/>}/>
-      <Route path={'/contactUs'} exact  element={<ContactUs/>}/>
+      <Route path={'/home'} exact  element={<Home/>}/>
       <Route path={'/profile'} exact  element={<Profile/>}/>
       <Route path={'/upload'} exact  element={<Upload/>}/>
       <Route path={'/edit/:id'} exact  element={<Upload/>}/>
       </Route>  
-      <Route path={'/signup'} exact  element={<SignUp/>}/>
-      <Route path={'/login'} exact  element={<Login/>}/>
       
+      <Route path={'/'} exact  element={<LandingPage isLoggedIn={isLoggedIn}/>}/>
+      <Route path={'/signup'} exact  element={<SignUp/>}/>
+      <Route path={'/aboutUs'} exact  element={<AboutUs/>}/>
+      <Route path={'/contactUs'} exact  element={<ContactUs/>}/>
+      <Route path={'/login'} exact  element={<Login/>}/>
      </Routes>
      </BrowserRouter>
+     
     </div>
   );
 }

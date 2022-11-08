@@ -6,15 +6,14 @@ import { useEffect } from 'react';
 import { getStone } from '../redux/features/gemstoneSlice';
 import LoadSvg  from '../images/load.svg'
 import { getSeller} from '../redux/features/authSlice';
-import { useNavigate } from 'react-router-dom';
 import Loader from '../components/Loader';
+import Footer from '../components/Footer';
 
 
 const Home = () => {
 
-  const {stoneList,stone} = useSelector(state=>state.stone)
+  const {stoneList} = useSelector(state=>state.stone)
   const {user,load} = useSelector(state=>state.auth)
-  const navigate = useNavigate()
   const dispatch= useDispatch()
   
  
@@ -26,8 +25,7 @@ const Home = () => {
    
   },[])
   return (
-    <div className='w-full h-[100vh]  flex flex-col '>
-     
+    <div className='w-full h-auto  flex flex-col'>
      <NavBar
      path={'/'}
      buttonLabel={'Home'} 
@@ -35,7 +33,7 @@ const Home = () => {
      profileImage={user?.profileImage}
      />
 
-     <div className='w-full h-auto mt-[66px]  grid-cols-1 grid grid-flow-row  place-items-center xxs:grid-cols-2 md:grid-cols-1'>
+     <div className='w-full h-auto mt-[100px] gap-4  grid-cols-1 grid grid-flow-row  place-items-center xxs:grid-cols-2 md:grid-cols-1'>
      {load? <Loader/>:''}
      { stoneList?.length === 0?
      <div className='flex flex-col mt-52'>
@@ -53,6 +51,7 @@ const Home = () => {
       />)}
       
      </div>
+     
     </div>
   )
 }

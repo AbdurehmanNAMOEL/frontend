@@ -2,11 +2,10 @@ import React,{useState} from 'react'
 import './navbar.css'
 import { Link } from 'react-router-dom'
 import Logo from '../images/ethiopiaLogo.jpg'
-import User from '../images/user.gif'
 import { useDispatch } from 'react-redux'
 import Menu from './Menu'
 import { logOut } from '../redux/features/authSlice'
-const Navbar2 = ({email,profileImage}) => {
+const Navbar2 = ({email,profileImage,bgColor}) => {
    const [isMenu,setMenu]=useState(false)
   const dispatch = useDispatch()
   
@@ -14,8 +13,7 @@ const Navbar2 = ({email,profileImage}) => {
        setMenu(!isMenu);
   }
   return (
-    <div className="fixed z-[100] flex w-full h-[70px] bg-white"
-  >
+    <div style={{backgroundColor:`${bgColor?bgColor:'white'}`}} className="fixed z-[100] flex w-full h-[70px] bg-white">
     <nav className='hidden md:flex  w-full h-[70px] bg-white justify-between items-center'>
       <Link to= '/' className='w-[200px] h-[70px] flex items-center'>
          <img src={Logo} alt=""  className='w-[50%] h-[80%]'/>
@@ -24,7 +22,7 @@ const Navbar2 = ({email,profileImage}) => {
       <ul className='flex gap-10 w-[98%] justify-end mr-[40px]'>
       
         <li className='cursor-pointer h-[70px] flex justify-center items-center hover:text-[#4cebe3]'>
-          <Link to='/'>Home</Link>
+          <Link to={`${profileImage?'/Home': '/'}`}>{`${profileImage?'DashBoard': 'Home'}`}</Link>
         </li>
 
         <li className='cursor-pointer h-[70px] flex justify-center items-center hover:text-[#4cebe3]'>
@@ -46,11 +44,11 @@ const Navbar2 = ({email,profileImage}) => {
                 <li onClick={()=>dispatch(logOut())} className='w-full h-[50%] flex justify-center items-center hover:bg-[#19fdd7]  '><Link to='/'>LogOut</Link></li>
             </ul>
         </li>
-
-         <li className='cursor-pointer h-[70px] flex justify-center items-center hover:text-[#4cebe3]'>
-          <img src={profileImage ? profileImage:User} alt="" className='w-[40px] h-[40px] rounded-full border-2 border-[#1212129f]' />
-         </li>
-
+         { profileImage?
+         <li className='cursor-pointer h-[70px] flex justify-center items-center hover:text-[#4cebe3]'> 
+          <img src={profileImage} alt="" className='w-[40px] h-[40px] rounded-full border-2 border-[#1212129f]' />
+         </li> 
+        :''}
       </ul>
     </nav>
 
