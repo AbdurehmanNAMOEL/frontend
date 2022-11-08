@@ -49,7 +49,7 @@ useEffect(()=>{
     
    },[])
   return (
-    <div className='landing-page-container w-full  flex flex-col items-center justify-center'>
+    <div className='landing-page-container w-full gap-2  flex flex-col items-center justify-center'>
        <div className='w-full' >
         <Navbar2
          path={'/'}
@@ -59,19 +59,19 @@ useEffect(()=>{
      />
        </div> 
         <section style={{backgroundImage:`url(${gemstoneCollection})`,backgroundSize:'cover'}} 
-         className='w-full h-[100vh] bg-[#121212]'>
+         className='w-full h-[80vh] md:h-[100vh] bg-[#121212]'>
            <div  
-           className='w-[100%] bg-[#121212a6] h-full flex flex-col md:flex-row'>
+           className='w-[100%] bg-[#121212a6]  h-full flex flex-col md:flex-row'>
               <motion.div
                initial={{x:-250}} 
               animate={{x:0}}  
               className='md:w-[50%] md:h-[100%] mt-20 md:mt-0 flex justify-center items-center'>
-                <span className='text-5xl text-center px-10 text-[#f3cd87]'>
+                <span className='text-2xl mt-3 md:mt-0 md:text-5xl text-center px-10 text-[#f3cd87]'>
                   We buy and sell The best Ethiopian raw and polished Gemstone
                   like:  <h1 className='text-5xl  text-white z-20 ml-[10px]'>{titles}</h1>
                 </span>
               </motion.div>
-              <div className='w-[80%] md:w-[50%] h-full flex justify-center items-center'>
+              <div className='w-[100%]  md:w-[50%] h-full flex justify-center items-center'>
               <img src={image} alt="" className='w-[80%] z-10 rounded-md  h-[50%] md:w-[50%]  md:h-[40%] '/>
                 
             </div>
@@ -79,7 +79,7 @@ useEffect(()=>{
 
         </section>
          <h1  data-aos="fade-right" className='text-4xl mb-12 mt-12 text-[#12121285]'>Some of Our finest gemstone</h1>
-         <section  className='stone-container w-full h-[200vh]  bg-[#3b393971] grid grid-cols-4 grid-flow-row place-content-center place-items-center'>
+         <section  className='stone-container w-full h-[200vh]  bg-red-400 grid grid-cols-4 grid-flow-row place-items-center'>
              {
                 gemStoneCategories.map(data=>
                 <SampleCard
@@ -100,7 +100,7 @@ useEffect(()=>{
           controls
           muted='muted'></video>
           </div>
-          <div className='md:mt-[150px] md:text-2xl text-[#121212d8]'>To experince the full tour <a className='text-blue-600' href='https://eyita-virtualtours.github.io/Ministry-of-Mines/'>clickhere</a></div>
+          <div className='md:mt-[140px] md:text-2xl text-[#121212d8]'>To experince the full tour <a className='text-blue-600' href='https://eyita-virtualtours.github.io/Ministry-of-Mines/'>clickhere</a></div>
         </section>
        {!isLoggedIn?<h1 data-aos="fade-left" className='for-more text-4xl mb-6 mt-16 text-[white]'>For more</h1>:''}
         {!isLoggedIn?<div className='login w-[180px] h-[40px] rounded-md flex justify-center items-center cursor-pointer bg-blue-500  mb-6 mt-6 text-white'>

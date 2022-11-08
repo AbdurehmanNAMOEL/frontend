@@ -3,9 +3,8 @@
 @media screen and (min-width:220px) and (max-width:480px) {
 
        .stone-container{
-        height: auto;
         grid-template-columns: 60% ;
-        grid-template-rows: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
+        grid-template-rows: 30% 30% 30% 30% 30% 30% 30% 30%  30% 30% 30% 30%;
         overflow-y: scroll;
    
     }
@@ -13,10 +12,10 @@
 
 @media screen and (min-width:480px) and (max-width:768px)   {
     .stone-container{
-         grid-template-columns: 45% 45%;
-        grid-template-rows: 20% 20% 20% 20% 20% 20% 20% 20%;
+        grid-template-columns: 45% 45%;
+        grid-template-rows: 30% 30% 30% 30% 30% 30% 30% 30%;
         overflow-y: scroll;
-   
+       
     }
    .login{
     margin-top: 0px;

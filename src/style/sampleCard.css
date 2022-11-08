@@ -75,3 +75,28 @@
 hover:bg-[rgba(55,57,57,1)]   
 
 }
+
+
+@media screen and (min-width:220px) and (max-width:480px) {
+  .card-big-container{
+     margin-left: 50%;     
+   
+    }
+}
+
+
+@media screen and (min-width:480px) and (max-width:768px)   {
+   .card-big-container{
+     margin-left: 20%;     
+   
+    }
+  
+}
+
+
+@media screen and (min-width : 768px) {
+   .card-big-container{
+     margin-left: 30%;     
+   
+    }
+}
