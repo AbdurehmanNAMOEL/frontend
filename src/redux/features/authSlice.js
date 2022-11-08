@@ -34,7 +34,6 @@ export const logIn =createAsyncThunk('user/logIn',async({userData,toast,navigate
 export const getSeller =createAsyncThunk('user/getUser',async()=>{
     try {
          const response = await axios.get('https://seller-site.herokuapp.com/home/getUser')
-         console.log(response.data)
          return response.data
         
     } catch (error) {
