@@ -42,7 +42,9 @@ const Menu = ({isMenu,displayMenuBar,profileImage,toggleClicked}) => {
      <span  className='cursor-pointer flex justify-start p-3 items-center w-full hover:bg-green-300 h-8'><Link  to={'/contactUs'} className='ml-[30px]'>Contact Us</Link></span>
      <span   className='cursor-pointer flex justify-start p-3 items-center w-full hover:bg-green-300 h-8'><Link to={'/aboutUs'} className='ml-[30px]'>About Us</Link></span>
      <span   className='cursor-pointer flex justify-start p-3 items-center w-full hover:bg-green-300 h-8'><Link to={'/profile'} className='ml-[30px]'>ProFile</Link></span>
-     <span onClick={()=>dispatch(logOut())}   className='cursor-pointer p-3 flex justify-start items-center w-full hover:bg-green-300 h-8'><Link to={'/'} className='ml-[30px]'>LogOut</Link></span>
+    { profileImage ? <span onClick={()=>dispatch(logOut())}   className='cursor-pointer p-3 flex justify-start items-center w-full hover:bg-green-300 h-8'>
+      <Link to={'/'} className='ml-[30px]'>LogOut</Link>
+    </span>:<span   className='bg-white cursor-pointer justify-start flex p-3  items-center w-full h-8 hover:bg-green-300 '><Link to={'/login'} className='ml-[30px]'>Login</Link></span>}
   </motion.div>}
   </div>
 </div>
