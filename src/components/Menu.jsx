@@ -28,19 +28,21 @@ const Menu = ({isMenu,displayMenuBar,profileImage,toggleClicked}) => {
     </div>
 
     { isMenu && <motion.div 
-               className=" mini-container rounded-sm fixed gap-4 top-[75px] right-[90px] flex justify-center items-center flex-col w-[70%] h-[300px] bg-white shadow-md"
+               className=" mini-container rounded-sm fixed gap-4 top-[75px] right-[90px] flex justify-center items-center flex-col w-[70%] h-[350px] bg-white shadow-md"
                initial={{y:-400}}
                animate={{y:0}}
                transition={{type:'spring'}}
     >
-     <span  className='cursor-pointer flex justify-start items-center w-full h-12 hover:bg-green-300'>
+    { profileImage?<span   className='bg-white cursor-pointer justify-start flex p-3  items-center w-full h-8 hover:bg-green-300 '><Link to={'/'} className='ml-[30px]'>Home</Link></span>:''}
+     <span  className='cursor-pointer flex justify-start items-center w-full h-8 p-3 hover:bg-green-300'>
        <Link className='ml-[30px]' to={`${profileImage?'/Home': '/'}`}>{`${profileImage?'DashBoard': 'Home'}`}</Link>
     </span>
-     <span   className='bg-white cursor-pointer justify-start flex  items-center w-full h-8 hover:bg-green-300 '><Link to={'/upload'} className='ml-[30px]'>Upload</Link></span>
-     <span  className='cursor-pointer flex justify-start items-center w-full hover:bg-green-300 h-8'><Link  to={'/contactUs'} className='ml-[30px]'>Contact Us</Link></span>
-     <span   className='cursor-pointer flex justify-start items-center w-full hover:bg-green-300 h-8'><Link to={'/aboutUs'} className='ml-[30px]'>About Us</Link></span>
-     <span   className='cursor-pointer flex justify-start items-center w-full hover:bg-green-300 h-8'><Link to={'/profile'} className='ml-[30px]'>ProFile</Link></span>
-     <span onClick={()=>dispatch(logOut())}   className='cursor-pointer flex justify-start items-center w-full hover:bg-green-300 h-8'><Link to={'/'} className='ml-[30px]'>LogOut</Link></span>
+
+     <span   className='bg-white cursor-pointer justify-start flex p-3  items-center w-full h-8 hover:bg-green-300 '><Link to={'/upload'} className='ml-[30px]'>Upload</Link></span>
+     <span  className='cursor-pointer flex justify-start p-3 items-center w-full hover:bg-green-300 h-8'><Link  to={'/contactUs'} className='ml-[30px]'>Contact Us</Link></span>
+     <span   className='cursor-pointer flex justify-start p-3 items-center w-full hover:bg-green-300 h-8'><Link to={'/aboutUs'} className='ml-[30px]'>About Us</Link></span>
+     <span   className='cursor-pointer flex justify-start p-3 items-center w-full hover:bg-green-300 h-8'><Link to={'/profile'} className='ml-[30px]'>ProFile</Link></span>
+     <span onClick={()=>dispatch(logOut())}   className='cursor-pointer p-3 flex justify-start items-center w-full hover:bg-green-300 h-8'><Link to={'/'} className='ml-[30px]'>LogOut</Link></span>
   </motion.div>}
   </div>
 </div>
