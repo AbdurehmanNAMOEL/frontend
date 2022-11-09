@@ -9,15 +9,16 @@ const Profile = () => {
   const {user} = useSelector(state=>state.auth)
  
   return (
-    <div className='w-full h-auto flex flex-col bg-[#363636b6]'>
+    <div className='w-full h-[120vh] md:h-[100vh] gap-[100px] md:gap-0 flex flex-col bg-[#363636b6]'>
+   <div className='w-full h-[70px]'>
     <NavBar
      email={user?.email}
      profileImage={user?.profileImage}
      />
-     <div className='profile-container w-full h-[89vh] mt-[11vh] flex  justify-center items-center'>
-
-      <div className='w-[90%] md:w-[80%] h-[90%] flex flex-col md:flex-row'>
-        <div className='w-full h-[500px] rounded-md md:w-[40%] md:h-full bg-red-400 flex md:justify-center items-center flex-col'>
+   </div>
+    
+     <div className='profile-container -mt-[50px] w-[80%] ml-[10%] md:ml-0 md:w-full h-[110vh]  flex flex-col md:flex-row justify-center items-center'>
+        <div className='user-photo w-[80%] md:ml-10 rounded-md md:w-[40%]  bg-red-400 flex justify-center md:h-[80%] md:justify-center items-center flex-col'>
          <div className='image-container w-[80%] mt-5 md:w-[40%] h-[40%] md:mt-0'>
           <img src={user?.profileImage? user?.profileImage:User} alt="" className=' w-[80%] ml-8 md:ml-0 md:w-[300px] md:h-[180px] rounded-full border-2 border-[#121212c0]' />
          </div>
@@ -26,7 +27,7 @@ const Profile = () => {
          </div>
          <span className='text-[#121212c4]'>Seller</span>
         </div>
-         <div className='rounded-md mt-2 md:mt-0 md:ml-2 md:w-[60%] h-full bg-white flex flex-col'>
+         <div className='user-data rounded-md h-[80%] w-[80%] md:h-[80%] mt-2 md:mt-0 md:ml-2 md:w-[40%]  bg-white flex flex-col'>
            <div className='flex flex-col ml-4 w-[80%] mt-3'>
             <span className='text-xl mb-2'>Name</span>
             <div className='h-[30px] bg-[#75757548]'>
@@ -53,7 +54,7 @@ const Profile = () => {
          </div>
         </div> 
      </div>
-    </div>
+
   )
 }
 

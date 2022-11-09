@@ -1,18 +1,22 @@
-.profile-container{
-    background-color: red;
-}
-
 
 
 @media screen and (min-width:220px) and (max-width:480px) {
-  .profile-container{
-     width: 100%;     
+   .profile-container{
+    width: 100%;
+    margin-left: 0px;
    }
    .image-container{
     width: 70%;
    }
     .user-name{
     margin-top: 20%;
+   }
+   .user-data{
+    height: 100%;
+    width: 95%;
+   }
+   .user-photo{
+    width: 95%;
    }
 }
 
