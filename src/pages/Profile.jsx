@@ -9,7 +9,7 @@ const Profile = () => {
   const {user} = useSelector(state=>state.auth)
  
   return (
-    <div className='w-full h-[120vh] md:h-[100vh] gap-[100px] md:gap-0 flex flex-col bg-[#363636b6]'>
+    <div className='w-full h-[150vh] md:h-[100vh] gap-[100px] md:gap-0 flex flex-col bg-[#363636b6]'>
    <div className='w-full h-[70px]'>
     <NavBar
      email={user?.email}
