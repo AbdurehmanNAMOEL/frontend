@@ -4,6 +4,7 @@
    .profile-container{
     width: 100%;
     margin-left: 0px;
+    margin-top: 5px;
    }
    .image-container{
     width: 70%;
@@ -23,13 +24,41 @@
 
 
 @media screen and (min-width:480px) and (max-width:768px)   {
+.profile-container{
+    width: 90%;
+    margin-left: 5%;
+    margin-top: -100px;
+   }
    .image-container{
-    width: 50%;
+    width: 70%;
+    height: 30%;
    }
    .user-name{
-    margin-top: 15%;
+    margin-top: 22%;
    }
-  
+   .user-data{
+    height: 40%;
+    width: 95%;
+    margin-bottom: 10px;
+   }
+   .user-photo{
+    width: 95%;
+    height: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   }  
+   .user-photo img{
+    width: 50%;
+    height: 200px;
+    margin-left: 25%;
+   }
 }
 
 
+@media screen and (min-width : 768px) {
+   .profile-container{
+     margin-top: 20px;     
+   
+    }
+}
