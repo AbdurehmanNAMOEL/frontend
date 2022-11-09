@@ -11,9 +11,9 @@ const Menu = ({isMenu,displayMenuBar,profileImage,toggleClicked}) => {
    const dispatch = useDispatch()
   return (
 <div className='flex md:hidden  flex-row w-full items-center justify-between'>
-  <div className="w-40">
+  <Link to='/' className="w-40">
        <img src={Logo} alt="" className='h-16' />
-   </div>
+   </Link>
     <div className='user-image cursor-pointer -ml-[150px] h-[70px] flex justify-center items-center hover:text-[#4cebe3]'>
           <img src={profileImage ? profileImage:User} alt="" className='w-[40px] h-[40px] rounded-full border-2 border-[#1212129f]' />
      </div>
