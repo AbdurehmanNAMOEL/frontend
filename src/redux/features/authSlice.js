@@ -41,6 +41,16 @@ export const getSeller =createAsyncThunk('user/getUser',async()=>{
     }
 })
 
+export const updatePassword =createAsyncThunk('user/updatePassword',async({userData})=>{
+    try {
+         const response = await axios.put('https://seller-site.herokuapp.com/home/seller/update',userData)
+         console.log(response.data)
+         return response.data
+        
+    } catch (error) {
+       console.log(error.response.data.error)
+    }
+})
 
 const createUserSlice= createSlice({
     name:'user',
@@ -97,6 +107,18 @@ const createUserSlice= createSlice({
             state.user= action.payload
         },
          [getSeller.rejected]:(state,action)=>{
+            state.load=true
+            state.error=' action.payload.message'
+        },
+        
+         [updatePassword.pending]:(state,action)=>{
+            state.load=true
+        },
+         [updatePassword.fulfilled]:(state,action)=>{
+            state.load=false
+            state.user= action.payload
+        },
+         [updatePassword.rejected]:(state,action)=>{
             state.load=true
             state.error=' action.payload.message'
         }

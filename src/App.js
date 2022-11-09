@@ -13,6 +13,7 @@ import { useSelector } from "react-redux";
 import Profile from "./pages/Profile";
 import LandingPage from "./pages/LandingPage";
 import Footer from "./components/Footer";
+import ForgetPassword from "./pages/ForgetPassword";
 
 function App() {
  
@@ -36,6 +37,7 @@ useEffect(()=>{},[isLoggedIn])
       <Route path={'/aboutUs'} exact  element={<AboutUs/>}/>
       <Route path={'/contactUs'} exact  element={<ContactUs/>}/>
       <Route path={'/login'} exact  element={<Login/>}/>
+      <Route path={'/password'} exact  element={<ForgetPassword/>}/>
      </Routes>
      </BrowserRouter>
      
