@@ -83,7 +83,7 @@ useEffect(()=>{
           <img src={id?Edit:Load} alt=""  className='-mt-40px md:mt-0 w-[50%] h-[80px] md:h-[250px] md:w-[50%]'/>
     </div>
      <div className='w-full h-[100vh] -mt-10 md:mt-0 border-2 border-[#1212122f] md:w-full md:h-full shadow-md flex flex-col justify-center items-center'>
-       <span className='w-full h-[50px] mt-5 md:mt-[50px] text-xl flex justify-center items-center text-[#b8adadd5]'>{id ? 'EditTour':'AddTour'}</span>
+       <span className='w-full h-[50px] mt-5 md:mt-[50px] text-xl flex justify-center items-center text-[#b8adadd5]'>{id ? 'EditGemstone':'AddGemstone'}</span>
       <div className='w-[80%]  h-[100px] md:w-[70%] md:h-16 flex flex-col justify-center items-center md:flex-row'>  
        <select
         onChange={(e)=>setTitle(e.target.value)} 
