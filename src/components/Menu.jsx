@@ -40,7 +40,7 @@ const Menu = ({isMenu,displayMenuBar,profileImage,toggleClicked}) => {
      <span  className='cursor-pointer flex justify-start items-center w-full hover:bg-green-300 h-8'><Link  to={'/contactUs'} className='ml-[30px]'>Contact Us</Link></span>
      <span   className='cursor-pointer flex justify-start items-center w-full hover:bg-green-300 h-8'><Link to={'/aboutUs'} className='ml-[30px]'>About Us</Link></span>
      <span   className='cursor-pointer flex justify-start items-center w-full hover:bg-green-300 h-8'><Link to={'/profile'} className='ml-[30px]'>ProFile</Link></span>
-     <span onClick={()=>dispatch(logOut())}   className='cursor-pointer flex justify-start items-center w-full hover:bg-green-300 h-8'><Link to={'/login'} className='ml-[30px]'>LogOut</Link></span>
+     <span onClick={()=>dispatch(logOut())}   className='cursor-pointer flex justify-start items-center w-full hover:bg-green-300 h-8'><Link to={'/'} className='ml-[30px]'>LogOut</Link></span>
   </motion.div>}
   </div>
 </div>
