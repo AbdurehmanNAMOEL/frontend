@@ -1,28 +1,30 @@
 @media screen and (min-width:220px) and (max-width:480px) {
-  .mini-container{
-     margin-right: -20px;     
+  .card-big-container{
+     margin-left: 70%;     
    
-    }
-    .user-image{
-        margin-left: -130px;
     }
 }
 
 
 @media screen and (min-width:480px) and (max-width:768px)   {
-   .mini-container{
-     margin-right:65px;     
+   .login{
+     width: 90%;
+   
    
     }
-    .user-image{
-        margin-left: -270px;
+   
+    .sign-up{
+        margin-left: 400px;
+    }
+    button{
+        height: 40px;
     }
   
 }
 
 
 @media screen and (min-width : 768px) {
-   .mini-container{
+   .card-big-container{
      margin-left: 90%;     
    
     }
