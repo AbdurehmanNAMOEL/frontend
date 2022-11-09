@@ -18,10 +18,14 @@ const Profile = () => {
    </div>
     
      <div className='profile-container -mt-[50px] w-[80%] ml-[10%] md:ml-0 md:w-full h-[110vh]  flex flex-col md:flex-row justify-center items-center'>
-        <div className='user-photo w-[80%] md:ml-10 rounded-md md:w-[40%]  bg-red-400 flex justify-center md:h-[80%] md:justify-center items-center flex-col'>
-         <div className='image-container w-[80%] mt-5 md:w-[40%] h-[40%] md:mt-0'>
-          <img src={user?.profileImage? user?.profileImage:User} alt="" className=' w-[80%] ml-8 md:ml-0 md:w-[300px] md:h-[180px] rounded-full border-2 border-[#121212c0]' />
-         </div>
+        <div className='user-photo md:ml-10 rounded-md md:w-[40%]  bg-red-400 flex justify-center md:h-[80%] md:justify-center items-center flex-col'>
+        <div className='image-container rounded-md w-[200px] mt-7 h-[200px] bg-slate-500'
+        style={{backgroundImage:`url(${user?.profileImage})`,backgroundSize:'cover',position:'center'}
+      
+      }
+        >
+
+        </div>
          <div className='user-name text-xl mt-[80px] md:mt-0'>
           {user?.name}
          </div>
