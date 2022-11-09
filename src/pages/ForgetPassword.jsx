@@ -1,20 +1,21 @@
 import React from 'react'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 import InputField from '../components/InputField'
 import { updatePassword } from '../redux/features/authSlice'
-
+import {toast} from 'react-toastify'
 const ForgetPassword = () => {
     const [email,setEmail] =useState()
     const [password,setNewPassword] =useState()
     const dispatch = useDispatch()
-
+    const navigate = useNavigate()
     const editPassword=()=>{
         let userData={
             email:email,
             password:password
         }
-        dispatch(updatePassword({userData}))
+        dispatch(updatePassword({userData,navigate,toast}))
     }
   return (
     <div className='w-full h-[100vh]  flex justify-center items-center bg-[#a19e9ec0]'>

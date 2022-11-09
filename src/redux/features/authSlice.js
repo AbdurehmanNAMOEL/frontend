@@ -41,14 +41,14 @@ export const getSeller =createAsyncThunk('user/getUser',async()=>{
     }
 })
 
-export const updatePassword =createAsyncThunk('user/updatePassword',async({userData})=>{
+export const updatePassword =createAsyncThunk('user/updatePassword',async({userData,navigate,toast})=>{
     try {
          const response = await axios.put('https://seller-site.herokuapp.com/home/seller/update',userData)
-         console.log(response.data)
+         navigate('/login')
          return response.data
         
     } catch (error) {
-       console.log(error.response.data.error)
+        toast.error(error.response.data.error)
     }
 })
 
