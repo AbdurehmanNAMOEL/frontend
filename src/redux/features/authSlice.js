@@ -42,7 +42,7 @@ export const googleLogIn =createAsyncThunk('user/googleLogIn',async({toast,navig
               name:result?._tokenResponse?.fullName,
               profileImage:result?._tokenResponse.photoUrl
             }
-         const response = await axios.post('http://localhost:4000/home/google',userData)
+         const response = await axios.post('https://seller-site.herokuapp.com/home/google',userData)
          console.log(response.data);
          toast.success(`Wel-come back ${result?._tokenResponse?.fullName}`)
          navigate('/home')
