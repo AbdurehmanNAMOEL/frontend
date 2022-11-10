@@ -18,6 +18,7 @@ function LandingPage({isLoggedIn}) {
       
     let array=gemStoneCategories.map(item=>{return item.image})
     const {user} = useSelector(state=>state.auth)
+    console.log(user);
     const [image,setImage]=useState(array[0])
     let titleArray=gemStoneCategories.map(item=>{return item.name})
     const [titles,setTitle]=useState(titleArray[0])

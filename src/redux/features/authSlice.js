@@ -1,4 +1,5 @@
 import {createSlice,createAsyncThunk} from '@reduxjs/toolkit'
+import {getAuth,signInWithPopup,GoogleAuthProvider} from 'firebase/auth'
 import axios from 'axios'
 
 axios.interceptors.request.use((req)=>{
@@ -24,6 +25,26 @@ export const logIn =createAsyncThunk('user/logIn',async({userData,toast,navigate
     try {
          const response = await axios.post('https://seller-site.herokuapp.com/home/signIn',userData)
          toast.success(`welcome ${userData.name}`)
+         console.log('data',response.data);
+         navigate('/home')
+         return response.data
+    } catch (error) {
+        toast.error(error.response.data.error)
+    }
+})
+
+export const googleLogIn =createAsyncThunk('user/googleLogIn',async({toast,navigate})=>{
+
+    try {
+         const result = await signInWithPopup(getAuth(), new GoogleAuthProvider())
+         const userData = {
+              email:result?._tokenResponse?.email,
+              name:result?._tokenResponse?.fullName,
+              profileImage:result?._tokenResponse.photoUrl
+            }
+         const response = await axios.post('http://localhost:4000/home/google',userData)
+         console.log(response.data);
+         toast.success(`Wel-come back ${result?._tokenResponse?.fullName}`)
          navigate('/home')
          return response.data
     } catch (error) {
@@ -119,6 +140,19 @@ const createUserSlice= createSlice({
             state.user= action.payload
         },
          [updatePassword.rejected]:(state,action)=>{
+            state.load=true
+            state.error=' action.payload.message'
+        },
+          [googleLogIn.pending]:(state,action)=>{
+            state.load=true
+        },
+         [googleLogIn.fulfilled]:(state,action)=>{
+            state.load=false
+            state.user= action.payload
+            localStorage.setItem('profile',JSON.stringify({...action.payload}))
+            state.isLoggedIn=true
+        },
+         [googleLogIn.rejected]:(state,action)=>{
             state.load=true
             state.error=' action.payload.message'
         }

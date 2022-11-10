@@ -10,6 +10,7 @@ import { useState } from 'react';
 import { createAccount } from '../redux/features/authSlice';
 import { toast } from 'react-toastify';
 import { useEffect } from 'react';
+import GoogleButton from 'react-google-button';
 
 const SignUp = () => {
   
@@ -127,6 +128,9 @@ const SignUp = () => {
       </span>
       <button type='submit'  className='w-[80%] h-[40px] mt-1 flex justify-center items-center bg-blue-500 text-white rounded-md hover:bg-blue-500'>Submit</button>
     </form>
+      <GoogleButton
+        label='Google'
+       onClick={''}/>
    </div>
   </div>
 </div>

@@ -5,10 +5,12 @@ import Stone from '../images/opal.jpg'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import {toast} from 'react-toastify'
-import { logIn } from '../redux/features/authSlice'
+import { googleLogIn, logIn } from '../redux/features/authSlice'
 import Navbar2 from '../components/NavBar'
 import { useEffect } from 'react'
 import '../style/login.css'
+import { auth } from '../firebase'
+import GoogleButton from 'react-google-button'
 const Login = () => {
 
    const {user} = useSelector(state=>state.auth)
@@ -16,6 +18,7 @@ const Login = () => {
    const [email,setEmail]= useState('')
    const [password,setPassword]= useState('')
    const navigate = useNavigate()
+   
    const handleSubmit=()=>{
     const userData = {
       email:email,
@@ -26,6 +29,8 @@ const Login = () => {
   
    }
 
+  const googleSignUp=()=> dispatch(googleLogIn({toast,navigate}))
+   
    useEffect(()=>{
    
    },[])
@@ -40,10 +45,10 @@ const Login = () => {
           <img src={Stone} alt ='' className='w-full h-[300px] md:w-[50%] md:h-full'/>
       <div className='h-[50vh] md:h-full md:w-[50%] -mt-10 md:mt-0  flex justify-center '>
        <div className='w-[400px] mt-[100px] h-[60%] items-center flex flex-col'>
-       <div className='h-[60px] w-full -mt-16 mb-10   flex justify-center items-center'>
+       <div className='h-[60px] w-full -mt-24 mb-10   flex justify-center items-center'>
        <span className='text-xl text-white font-bold '>LogIn</span>
        </div>
-       <div className='-mt-10 mb-5 w-[50%] md:w-[80%]  md:mb-12 h-[1px] bg-[#4b4949]'/>
+       <div className='-mt-10 -mb-8 w-[50%] md:w-[80%]  md:mb-12 h-[1px] bg-[#4b4949]'/>
       
        <InputField 
        type='email' 
@@ -70,7 +75,11 @@ const Login = () => {
           you don't have an account? SignUp
         </Link>
       </span>
-      <button onClick={handleSubmit} id='btn-login' className='w-[80%] h-[40px]  mt-4 flex justify-center items-center bg-blue-400 text-white rounded-md hover:bg-blue-500'>Login</button>
+      <button onClick={handleSubmit} id='btn-login' className='w-[80%] mb-4 h-[40px]  mt-4 flex justify-center items-center bg-blue-400 text-white rounded-md hover:bg-blue-500'>LogIn</button>
+       <span className='mb-4 text-[white]'>OR</span>
+       <GoogleButton 
+        label='Login'
+       onClick={googleSignUp}/>
     </div>
         </div>
       
