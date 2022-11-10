@@ -19,7 +19,7 @@ const Navbar2 = ({email,profileImage,bgColor}) => {
      style={{backgroundColor:`${bgColor?bgColor:'white'}`}} 
     className='hidden md:flex  w-full h-[70px] bg-white justify-between items-center'>
       <Link to= '/' className='w-[200px] h-[70px] flex items-center'>
-         <img src={bgColor==='white'?Logo:Logo2} alt=""  className='w-[50%] h-[80%]'/>
+         <img src={Logo} alt=""  className='w-[50%] h-[80%]'/>
       </Link>
 
       <ul className='flex gap-10 w-[98%] justify-end mr-[40px]'>
