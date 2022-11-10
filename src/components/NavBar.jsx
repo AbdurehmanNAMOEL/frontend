@@ -27,11 +27,7 @@ const Navbar2 = ({email,profileImage,bgColor}) => {
         <li className='cursor-pointer h-[70px] flex justify-center items-center hover:text-[#4cebe3]'>
           <Link to={`${profileImage?'/Home': '/'}`}>{`${profileImage?'DashBoard': 'Home'}`}</Link>
         </li>
-
-
-        <li className='cursor-pointer h-[70px] flex justify-center items-center hover:text-[#4cebe3]'>
-          <Link to='/password'>Forget Password</Link>
-        </li>
+        
         <li className='cursor-pointer h-[70px] flex justify-center items-center hover:text-[#4cebe3]'>
           <Link to='/upload'>Upload</Link>
         </li>
@@ -56,6 +52,9 @@ const Navbar2 = ({email,profileImage,bgColor}) => {
           <img src={profileImage} alt="" className='w-[40px] h-[40px] rounded-full border-2 border-[#1212129f]' />
          </li> 
         :''}
+        {!profileImage?<li className='cursor-pointer h-[70px] flex justify-center items-center hover:text-[#4cebe3]'>
+        <Link to={'/login'}>LogIn</Link>
+      </li>:<li nClick={()=>dispatch(logOut())} className='cursor-pointer h-[70px] flex justify-center items-center hover:text-[#4cebe3]'>LogIn</li>}
       </ul>
     </nav>
 
