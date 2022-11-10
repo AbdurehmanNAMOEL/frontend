@@ -54,7 +54,7 @@ const Navbar2 = ({email,profileImage,bgColor}) => {
         :''}
         {!profileImage?<li className='cursor-pointer h-[70px] flex justify-center items-center hover:text-[#4cebe3]'>
         <Link to={'/login'}>LogIn</Link>
-      </li>:<li nClick={()=>dispatch(logOut())} className='cursor-pointer h-[70px] flex justify-center items-center hover:text-[#4cebe3]'>LogIn</li>}
+      </li>:<li nClick={()=>dispatch(logOut())} className='cursor-pointer h-[70px] flex justify-center items-center hover:text-[#4cebe3]'>LogOut</li>}
       </ul>
     </nav>
 
