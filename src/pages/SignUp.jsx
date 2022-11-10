@@ -109,7 +109,7 @@ const SignUp = () => {
       title='ConfirmPassword'
       setValue={setConfirmPassword}
       value ={confirmPassword}
-      name='confirmPassword' 
+      name='password' 
       error={' confirmPassword required is required'}
       />
       

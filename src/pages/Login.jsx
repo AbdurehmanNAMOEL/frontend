@@ -56,7 +56,7 @@ const Login = () => {
        name='email'
        error={'valid email is required'}
        />
-
+      
        <InputField 
        type='password' 
        placeholder={'Enter password'} 
@@ -66,7 +66,8 @@ const Login = () => {
        name='password'
        error={'valid password is required'}
        />
-
+    
+  
       <span className='sign-up w-[80%] flex  justify-end'>
         <Link to={'/signup'} className='text text-sm text-white '>
           you don't have an account? <span className='text-blue-500'>SignUp</span>

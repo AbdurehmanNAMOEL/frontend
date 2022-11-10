@@ -24,33 +24,23 @@ const Navbar2 = ({email,profileImage,bgColor}) => {
 
       <ul className='flex gap-10 w-[98%] justify-end mr-[40px]'>
       
-        <li
-         style={{color:`${bgColor==='white'?'#1212122':'white'}`}}
-         className='cursor-pointer h-[70px] flex justify-center items-center hover:text-[#4cebe3]'>
+        <li className='cursor-pointer h-[70px] flex justify-center items-center hover:text-[#4cebe3]'>
           <Link to={`${profileImage?'/Home': '/'}`}>{`${profileImage?'DashBoard': 'Home'}`}</Link>
         </li>
 
 
-        <li
-         style={{color:`${bgColor==='white'?'#1212122':'white'}`}} 
-        className='cursor-pointer h-[70px] flex justify-center items-center hover:text-[#4cebe3]'>
+        <li className='cursor-pointer h-[70px] flex justify-center items-center hover:text-[#4cebe3]'>
           <Link to='/password'>Forget Password</Link>
         </li>
-        <li
-         style={{color:`${bgColor==='white'?'#1212122':'white'}`}} 
-        className='cursor-pointer h-[70px] flex justify-center items-center hover:text-[#4cebe3]'>
+        <li className='cursor-pointer h-[70px] flex justify-center items-center hover:text-[#4cebe3]'>
           <Link to='/upload'>Upload</Link>
         </li>
 
-        <li
-         style={{color:`${bgColor==='white'?'#1212122':'white'}`}} 
-        className='cursor-pointer h-[70px] flex justify-center items-center hover:text-[#4cebe3] '>
+        <li className='cursor-pointer h-[70px] flex justify-center items-center hover:text-[#4cebe3] '>
           <Link to='/contactUs'>Contact-Us</Link>
         </li>
 
-        <li
-         style={{color:`${bgColor==='white'?'#1212122':'white'}`}}
-         className='cursor-pointer h-[70px] flex justify-center items-center hover:text-[#4cebe3]'>
+        <li className='cursor-pointer h-[70px] flex justify-center items-center hover:text-[#4cebe3]'>
           <Link to='/aboutUs'>About-Us</Link>
         </li>
 
