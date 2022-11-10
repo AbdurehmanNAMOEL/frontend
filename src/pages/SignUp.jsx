@@ -128,9 +128,9 @@ const SignUp = () => {
       </span>
       <button type='submit'  className='w-[80%] h-[40px] mt-1 flex justify-center items-center bg-blue-500 text-white rounded-md hover:bg-blue-500'>Submit</button>
     </form>
-      <GoogleButton
+      {/* <GoogleButton
         label='Google'
-       onClick={''}/>
+       onClick={''}/> */}
    </div>
   </div>
 </div>

@@ -18,7 +18,7 @@ const Login = () => {
    const [email,setEmail]= useState('')
    const [password,setPassword]= useState('')
    const navigate = useNavigate()
-   
+
    const handleSubmit=()=>{
     const userData = {
       email:email,
@@ -77,9 +77,9 @@ const Login = () => {
       </span>
       <button onClick={handleSubmit} id='btn-login' className='w-[80%] mb-4 h-[40px]  mt-4 flex justify-center items-center bg-blue-400 text-white rounded-md hover:bg-blue-500'>LogIn</button>
        <span className='mb-4 text-[white]'>OR</span>
-       <GoogleButton 
+       {/* <GoogleButton 
         label='Login'
-       onClick={googleSignUp}/>
+       onClick={googleSignUp}/> */}
     </div>
         </div>
       
