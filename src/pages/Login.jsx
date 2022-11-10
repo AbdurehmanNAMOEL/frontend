@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
 import InputField from '../components/InputField'
 import { Link } from 'react-router-dom'
-import Stone from '../images/opal.jpg'
+import Stone from '../images/collection.png'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import {toast} from 'react-toastify'
@@ -36,19 +36,16 @@ const Login = () => {
    },[])
  
   return (
-    <div className='w-[100%] overflow-hidden h- flex flex-col justify-center items-center   shadow-md rounded-md bg-[#292828d8] '>
-      <div className='w-full h-[70px] mb-10'>
-      <Navbar2 path={'/home'}/>
-      </div>
-      
+    <div className='w-[100%] overflow-hidden h-[100vh] flex  justify-center items-center   shadow-md rounded-md bg-[#1d1d1d7a] '>  
+    {/* <div className='box'/>  */}
      <div className='login w-[100%] h-[100vh] gap-[20px] md:h-[80vh] flex flex-col md:flex-row'>
-          <img src={Stone} alt ='' className='w-full h-[300px] md:w-[50%] md:h-full'/>
-      <div className='h-[50vh] md:h-full md:w-[50%] -mt-10 md:mt-0  flex justify-center '>
-       <div className='w-[400px] mt-[100px] h-[60%] items-center flex flex-col'>
-       <div className='h-[60px] w-full -mt-24 mb-10   flex justify-center items-center'>
+          <img src={Stone} alt ='' className='login-image w-full h-[250px] md:w-[50%] md:h-full'/>
+      <div className='h-[50vh] md:h-full md:w-[40%] -mt-12 md:mt-0  flex justify-center items-center  '>
+       <div className='left-container w-[430px] h-[90%] justify-center items-center flex flex-col shadow-md border-2 border-[#ffffff21]'>
+       <div className='h-[60px] w-full -mt-16 mb-20 md:-mt-10 md:mb-7   flex justify-center items-center'>
        <span className='text-xl text-white font-bold '>LogIn</span>
        </div>
-       <div className='-mt-10 -mb-8 w-[50%] md:w-[80%]  md:mb-12 h-[1px] bg-[#4b4949]'/>
+       <div className='-mt-20 mb-4 w-[50%] md:w-[80%]  md:mb-8 md:-mt-7 h-[1px] bg-[#4b4949]'/>
       
        <InputField 
        type='email' 
@@ -70,13 +67,13 @@ const Login = () => {
        error={'valid password is required'}
        />
 
-      <span className='sign-up w-full flex ml-[290px]'>
-        <Link to={'/signup'} className='text-sm text-blue-500 -ml-16 md:ml-0'>
-          you don't have an account? SignUp
+      <span className='sign-up w-[80%] flex  justify-end'>
+        <Link to={'/signup'} className='text text-sm text-white '>
+          you don't have an account? <span className='text-blue-500'>SignUp</span>
         </Link>
       </span>
       <button onClick={handleSubmit} id='btn-login' className='w-[80%] mb-4 h-[40px]  mt-4 flex justify-center items-center bg-blue-400 text-white rounded-md hover:bg-blue-500'>LogIn</button>
-       <span className='mb-4 text-[white]'>OR</span>
+       {/* <span className='mb-4 text-[white]'>OR</span> */}
        {/* <GoogleButton 
         label='Login'
        onClick={googleSignUp}/> */}

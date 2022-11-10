@@ -57,6 +57,7 @@ useEffect(()=>{
          buttonLabel={'Home'} 
          email={user?.email}
          profileImage={user?.profileImage}
+         bgColor='white'
      />
        </div> 
         <section style={{backgroundImage:`url(${gemstoneCollection})`,backgroundSize:'cover'}} 

@@ -2,8 +2,9 @@ import React from 'react'
 import InputField from '../components/InputField'
 import { Link, useNavigate } from 'react-router-dom'
 import FileBase64 from 'react-filebase64';
-import Stone from '../images/opal.jpg'
+import Stone from '../images/collection.png'
 import User from '../images/user.png'
+import '../style/signup.css'
 import Camera from '../images/camera.svg'
 import { useDispatch,useSelector } from 'react-redux'
 import { useState } from 'react';
@@ -42,10 +43,12 @@ const SignUp = () => {
 
 
   return (
-    <div className='w-[90%] h-[95vh] mt-4 shadow-md rounded-md border-2 border-[#968f8f44]'>
-      <div className='w-full h-full flex flex-col md:flex-row'>
-      <img src={Stone} alt ='' className='h-[250px] md:w-[50%] md:h-auto bg-[#15f1a8] flex flex-col'/>
-      <div className='md:w-[50%]  h-full flex flex-col items-center gap-5 justify-center bg-[#292828]'>
+    <div className='w-full h-[100vh] flex flex-col md:flex-row  shadow-md rounded-md '>
+      <div className='signup-image w-[50%] h-full flex justify-center items-center'>
+      <img src={Stone} alt ='' className='h-[90%] w-[80%]  flex flex-col'/>
+      </div>
+      <div className='md:w-[50%]  h-full flex flex-col items-center justify-center '>
+        <div className='sign-form w-[80%] h-[90%] flex justify-center items-center flex-col border-2 border-[#ffffff25]'>
        <div className='text-xl md:-mt-[100px] text-[#121212c9] -mt-[150px] h-[80px]'>
         <div className='w-[80px] h-[80px] mt-[150px]'>
             <img src={User} alt=""  className='w-[50px] h-[50px]'/>  
@@ -122,8 +125,8 @@ const SignUp = () => {
       />
     
       <span className='w-full flex ml-[220px] md:ml-[320px] mb-2'>
-        <Link to={'/login'} className='text-sm text-blue-500'>
-          already have an account? SignIn
+        <Link to={'/login'} className='text-sm text-white'>
+          already have an account? <span className='text-blue-500'>SignIn</span> 
         </Link>
       </span>
       <button type='submit'  className='w-[80%] h-[40px] mt-1 flex justify-center items-center bg-blue-500 text-white rounded-md hover:bg-blue-500'>Submit</button>

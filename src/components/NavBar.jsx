@@ -1,7 +1,8 @@
 import React,{useState} from 'react'
 import './navbar.css'
 import { Link } from 'react-router-dom'
-import Logo from '../images/ethiopiaLogo.jpg'
+import Logo from '../assets/Images/ethiopiaLogo.jpg'
+import Logo2 from '../assets/Images/ethioLogo2.jpg'
 import { useDispatch } from 'react-redux'
 import Menu from './Menu'
 import { logOut } from '../redux/features/authSlice'
@@ -13,31 +14,43 @@ const Navbar2 = ({email,profileImage,bgColor}) => {
        setMenu(!isMenu);
   }
   return (
-    <div style={{backgroundColor:`${bgColor?bgColor:'white'}`}} className="fixed z-[100] flex w-full h-[70px] bg-white">
-    <nav className='hidden md:flex  w-full h-[70px] bg-white justify-between items-center'>
+    <div className="fixed z-[100] flex w-full h-[70px] bg-white">
+    <nav
+     style={{backgroundColor:`${bgColor?bgColor:'white'}`}} 
+    className='hidden md:flex  w-full h-[70px] bg-white justify-between items-center'>
       <Link to= '/' className='w-[200px] h-[70px] flex items-center'>
-         <img src={Logo} alt=""  className='w-[50%] h-[80%]'/>
+         <img src={bgColor==='white'?Logo:Logo2} alt=""  className='w-[50%] h-[80%]'/>
       </Link>
 
       <ul className='flex gap-10 w-[98%] justify-end mr-[40px]'>
       
-        <li className='cursor-pointer h-[70px] flex justify-center items-center hover:text-[#4cebe3]'>
+        <li
+         style={{color:`${bgColor==='white'?'#1212122':'white'}`}}
+         className='cursor-pointer h-[70px] flex justify-center items-center hover:text-[#4cebe3]'>
           <Link to={`${profileImage?'/Home': '/'}`}>{`${profileImage?'DashBoard': 'Home'}`}</Link>
         </li>
 
 
-        <li className='cursor-pointer h-[70px] flex justify-center items-center hover:text-[#4cebe3]'>
+        <li
+         style={{color:`${bgColor==='white'?'#1212122':'white'}`}} 
+        className='cursor-pointer h-[70px] flex justify-center items-center hover:text-[#4cebe3]'>
           <Link to='/password'>Forget Password</Link>
         </li>
-        <li className='cursor-pointer h-[70px] flex justify-center items-center hover:text-[#4cebe3]'>
+        <li
+         style={{color:`${bgColor==='white'?'#1212122':'white'}`}} 
+        className='cursor-pointer h-[70px] flex justify-center items-center hover:text-[#4cebe3]'>
           <Link to='/upload'>Upload</Link>
         </li>
 
-        <li className='cursor-pointer h-[70px] flex justify-center items-center hover:text-[#4cebe3] '>
+        <li
+         style={{color:`${bgColor==='white'?'#1212122':'white'}`}} 
+        className='cursor-pointer h-[70px] flex justify-center items-center hover:text-[#4cebe3] '>
           <Link to='/contactUs'>Contact-Us</Link>
         </li>
 
-        <li className='cursor-pointer h-[70px] flex justify-center items-center hover:text-[#4cebe3]'>
+        <li
+         style={{color:`${bgColor==='white'?'#1212122':'white'}`}}
+         className='cursor-pointer h-[70px] flex justify-center items-center hover:text-[#4cebe3]'>
           <Link to='/aboutUs'>About-Us</Link>
         </li>
 
