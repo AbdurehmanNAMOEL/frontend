@@ -36,7 +36,7 @@ const Login = () => {
    },[])
  
   return (
-    <div className='w-[100%] overflow-hidden h-[100vh] flex  justify-center items-center   shadow-md rounded-md bg-[#1d1d1d7a] '>  
+    <div className='login-container w-[100%]  h-[100vh] flex  justify-center items-center   shadow-md rounded-md bg-[#1616169d] '>  
     {/* <div className='box'/>  */}
      <div className='login w-[100%] h-[100vh] gap-[20px] md:h-[80vh] flex flex-col md:flex-row'>
           <img src={Stone} alt ='' className='login-image w-full h-[250px] md:w-[50%] md:h-full'/>
