@@ -79,7 +79,7 @@ hover:bg-[rgba(55,57,57,1)]
 
 @media screen and (min-width:220px) and (max-width:480px) {
   .card-big-container{
-     margin-left: 70%;     
+     margin-left: 5%;     
    
     }
 }
@@ -87,7 +87,7 @@ hover:bg-[rgba(55,57,57,1)]
 
 @media screen and (min-width:480px) and (max-width:768px)   {
    .card-big-container{
-     margin-left: 75%;     
+     margin-left: 60%;     
    
     }
   

@@ -2,36 +2,34 @@
 
 @media screen and (min-width:220px) and (max-width:480px) {
 
-       .stone-container{
-        grid-template-columns: 60% ;
-        grid-template-rows: 10% 10% 10% 10% 10% 10% 10% 10%  10% 10% 10% 10%;
-        overflow-y: scroll;
+    .stone-container{
+        grid-template-columns:60% 60% 60% 60% 60% 60% 60% 60% 60% 60% 60% 60% 60% 60% 60% 60% 60%;
+        grid-template-rows: 100%;
+        overflow-x: scroll;
    
     }
     .stone-title{
-        font-size: 18px;
+        font-size: 24px;
         color: white;
     }
 }
 
 @media screen and (min-width:480px) and (max-width:768px)   {
     .stone-container{
-        grid-template-columns: 35% 35%;
-        grid-template-rows: 16% 16% 16% 16% 16% ;
+        grid-template-columns: 40% 40%;
+        grid-template-rows: 16% 16% 16% 16%  16% ;
         overflow-y: scroll;
        
     }
     .image-collection{
         margin-top: -70px;
         width: 500px;
-        margin-left: 10%;
+        margin-left: 7%;
     }
    .login{
     margin-top: 0px;
    }
-   .for-more{
-    margin-top: -150px;
-   }
+ 
     .stone-title{
          color: white;
     }
@@ -40,9 +38,11 @@
 
 @media screen and (min-width : 768px) {
         
-        .stone-container{
+    .stone-container{
+        height: auto;
         grid-template-columns: 16% 16% 16% 16% 16%;
-        grid-template-rows: 35% 35% 35%;
+        grid-template-rows: 25% 25% 25% 25%;
+     
 
     }
      .stone-title{

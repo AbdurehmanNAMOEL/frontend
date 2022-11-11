@@ -109,9 +109,7 @@ function LandingPage({listSelected, setListSelected}) {
                 <SampleCard
                   key={data.id}
                   title={data.title}
-                  image={data.image} 
-                 
-                  />
+                  image={data.image}/>
                 )
              }
         </section>
