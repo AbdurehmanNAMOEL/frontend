@@ -91,12 +91,12 @@ useEffect(()=>{
         className='w-full mb-4 md:w-[40%] bg-white h-8 indent-2 border-2 border-[#12121234]'  
        >
         <option value="type">Type</option>
-        <option value="emralde">Emralde</option>
-        <option value="Sapphire">Sapphire</option>
-        <option value="Ruby">Ruby</option>
-        <option value="peridot">peridot</option>
-        <option value="opal">Opal</option>
-        <option value="gold">Gold</option>
+        <option value="emralde">Emralde/ኤመራልድ</option>
+        <option value="Sapphire">Sapphire/ሳፋየር</option>
+        <option value="Ruby">Ruby/ሩቢ</option>
+        <option value="Diamond">Diamond/አልማዝ</option>
+        <option value="opal">Opal/ኦፓል</option>
+        <option value="gold">Gold/ወርቅ</option>
         </select> 
 
         <input 

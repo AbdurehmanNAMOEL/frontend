@@ -1,0 +1,13 @@
+ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70px;
+    width: 20%;
+    list-style: none;
+    gap: 40px;
+    
+}
+
+
+

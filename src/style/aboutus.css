@@ -1,0 +1,71 @@
+@media screen and (min-width:220px) and (max-width:480px) {
+
+    .teams-container{
+        width: 100%;
+        height: 100vh;
+        flex-direction: column;
+        overflow-y: scroll;
+   
+    }
+    .our-vision,.our-mission{
+        width: 90%;
+        height: 60vh;
+        margin-left: 5%;
+     
+    }
+    .inner-mission,.inner-vision{
+        width: 100%;
+    }
+    .mission-icon,.our-vision{
+        margin-top: 40px;
+
+    }
+    .user-card{
+        width: 90%;
+        height: 40vh;
+    }
+    .team-name{
+        margin-top: 10px;
+        margin-bottom: 5px;
+    }
+   
+}
+
+@media screen and (min-width:480px) and (max-width:768px)   {
+       .teams-container{
+        width: 100%;
+        height: 100vh;
+        flex-direction: column;
+        overflow-y: scroll;
+   
+    }
+    .user-card{
+        width: 70%;
+        height: 2000px;
+    }
+    .team-name{
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+}
+
+
+@media screen and (min-width : 768px) {
+    .teams-container{
+        width: 100%;
+        height: 100vh;
+        justify-content: center;
+        align-items: center;
+   
+    }
+    .user-card{
+        width: 30%;
+        height: 70%;
+        margin-left: 0px;
+    }
+    .team-name{
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+    
+}

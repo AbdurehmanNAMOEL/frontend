@@ -7,48 +7,47 @@ import Navbar2 from '../components/NavBar';
 import SampleCard from '../components/SampleCard';
 import '../style/landingpage.css';
 import  Aos  from 'aos';
-import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import Footer from '../components/Footer';
 import MomVideo from '../assets/videos/vertualTourOfMOM.mp4'
 let count=0;
 let intervalId;
 
-function LandingPage({isLoggedIn}) {
+function LandingPage({listSelected, setListSelected}) {
       
     let array=gemStoneCategories.map(item=>{return item.image})
     const {user} = useSelector(state=>state.auth)
-    console.log(user);
     const [image,setImage]=useState(array[0])
     let titleArray=gemStoneCategories.map(item=>{return item.name})
     const [titles,setTitle]=useState(titleArray[0])
     let imageLength=array.length
     let interval=5000;
-  const slide=()=>{
+    const slide=()=>{
      setImage(array[count])
      setTitle(titleArray[count])
     
-   }
+    }
 
-   const handleInterval=()=>{
+    const handleInterval=()=>{
         intervalId= setInterval(slide,interval)
-   }  
+    }  
 
-useEffect(()=>{
-     if(count<imageLength-1){
-       handleInterval()
-       count++;
-     }else {
+    useEffect(()=>{
+      if(count<imageLength-1){
+         handleInterval()
+        count++;
+      }else {
         clearInterval(intervalId)
         count=0
-     };
+      };
     
-},[count])
+    },[count])
 
   useEffect(()=>{
     Aos.init({duration:2000})
     
    },[])
+
   return (
     <div className='landing-page-container w-full gap-2 bg-white flex flex-col items-center justify-center'>
        <div className='w-full' >
@@ -58,6 +57,8 @@ useEffect(()=>{
          email={user?.email}
          profileImage={user?.profileImage}
          bgColor='white'
+         listSelected={listSelected} 
+         setListSelected={setListSelected}
      />
        </div> 
         <section style={{backgroundImage:`url(${gemstoneCollection})`,backgroundSize:'cover'}} 
@@ -93,8 +94,10 @@ useEffect(()=>{
                 )
              }
         </section>
-        <section className='border-2 border-[#1212125b] w-[95%] md:w-[80%] h-[20%] mt-5 md:h-[90vh] flex flex-col  items-center shadow-md rounded-md bg-white mt'>
-        <span className='text-xl md:text-4xl p-2 md:p-4 text-[#121212c9] mb-3'>Minister of Minerals Virtual Tour sample Video </span>
+        <section className='border-2 border-[#12121218] w-[95%] md:w-[80%] h-[20%] mt-5 md:h-[90vh] flex flex-col  items-center shadow-md rounded-md bg-white mt'>
+          <span className=' text-xl p-2 md:p-4 text-[#121212c9] mb-3'>
+             Minister of Mine Virtual Tour sample Video
+          </span>
           <div className='w-[90%] md:w-[70%] h-[50%] '>
           <video
           src={MomVideo}
@@ -102,12 +105,13 @@ useEffect(()=>{
           controls
           muted='muted'></video>
           </div>
-          <div className='md:mt-[140px] md:text-2xl text-[#121212d8]'>To experince the full tour <a className='text-blue-600' href='https://eyita-virtualtours.github.io/Ministry-of-Mines/'>clickhere</a></div>
+          <div className='md:mt-[160px] md:text-2xl text-[#121212d8]'>To experince the full tour 
+            <a className='text-blue-600' href='https://eyita-virtualtours.github.io/Ministry-of-Mines/'>
+            clickhere
+            </a>
+          </div>
         </section>
-       {!isLoggedIn?<h1 data-aos="fade-left" className='for-more text-4xl mb-6 mt-16 text-[#121212]'>For more</h1>:''}
-        {!isLoggedIn?<div className='login w-[180px] h-[40px] rounded-md flex justify-center items-center cursor-pointer bg-blue-500  mb-6 mt-6 text-white'>
-           <Link to='/login'>LogIn</Link> 
-        </div>:''}
+       
         <Footer/>
     </div>
   )

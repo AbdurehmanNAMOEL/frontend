@@ -27,3 +27,11 @@ export const gemStoneCategories=[
     { id: 1200, name:'Topaz', urlName:'Topaz',image:PolishedTopaz,price:'$2'},
 
 ]
+
+export const navData=[
+    // {"id":"a","title":'Home','link':'/'},
+    // {"id":"b","title":'DashBoard','link':'/dashBoard'},
+    {"id":"c","title":'Upload','link':'/upload'},
+    {"id":"d","title":'ContactUs','link':'/contactUs'},
+    {"id":"e","title":'AboutUs','link':'/aboutUs'}
+]

@@ -62,6 +62,7 @@ export const getSeller =createAsyncThunk('user/getUser',async()=>{
     }
 })
 
+
 export const updatePassword =createAsyncThunk('user/updatePassword',async({userData,navigate,toast})=>{
     try {
          const response = await axios.put('https://seller-site.herokuapp.com/home/update',userData)
@@ -79,6 +80,7 @@ const createUserSlice= createSlice({
         user:null,
         load:false,
         isLoggedIn:false,
+        listName:'',
         error:''
     },
     reducers:{
