@@ -10,11 +10,30 @@ import  Aos  from 'aos';
 import { useSelector } from 'react-redux';
 import Footer from '../components/Footer';
 import MomVideo from '../assets/videos/vertualTourOfMOM.mp4'
+import {toast} from 'react-toastify'
+import { useRef } from 'react';
+import emailjs from '@emailjs/browser';
 let count=0;
 let intervalId;
 
+
 function LandingPage({listSelected, setListSelected}) {
-      
+    
+  const form = useRef()
+  const [firstName,setFirstName]=useState('')
+  const [lastName,setLastName]=useState('')
+  const [email,setEmail]=useState('')
+  const [message,setMessage]=useState('')
+  const sendEmail = (e) => {
+    e.preventDefault()
+    emailjs.sendForm('gmail', 'template_ft3gg8b',form.current, 'NqKFG5yFZi3hU0nnJ')
+      .then((result) => {
+         toast.success(result.data)
+      }, (error) => {
+           toast.error(error.text)
+      });
+  };
+ 
     let array=gemStoneCategories.map(item=>{return item.image})
     const {user} = useSelector(state=>state.auth)
     const [image,setImage]=useState(array[0])
@@ -49,7 +68,7 @@ function LandingPage({listSelected, setListSelected}) {
    },[])
 
   return (
-    <div className='landing-page-container w-full gap-2 bg-white flex flex-col items-center justify-center'>
+    <div className='landing-page-container w-full gap-2 bg-[#868686] flex flex-col items-center justify-center'>
        <div className='w-full' >
         <Navbar2
          path={'/'}
@@ -81,8 +100,10 @@ function LandingPage({listSelected, setListSelected}) {
          </div>
 
         </section>
-         <h1  data-aos="fade-right" className='stone-title text-4xl mb-12 mt-12 text-[#d1656585]'>Some of Our finest gemstone</h1>
-         <section  className='stone-container w-full h-auto  mb-[150px]  grid grid-cols-4 grid-flow-row place-items-center'>
+         <h1  data-aos="fade-right" className='stone-title w-[84%] text-4xl mb-12 mt-12'>
+          Some of Our finest natural gemstone
+         </h1>
+         <section  data-aos="fade-left"  className='stone-container w-full h-auto  mb-[50px]  grid grid-cols-4 grid-flow-row place-items-center'>
              {
                 gemStoneCategories.map(data=>
                 <SampleCard
@@ -94,10 +115,11 @@ function LandingPage({listSelected, setListSelected}) {
                 )
              }
         </section>
-        <section className='border-2 border-[#12121218] w-[95%] md:w-[80%] h-[20%] mt-5 md:h-[90vh] flex flex-col  items-center shadow-md rounded-md bg-white mt'>
-          <span className=' text-xl p-2 md:p-4 text-[#121212c9] mb-3'>
+        <span className=' text-2xl p-2 md:p-4 text-[#121212c9]  w-[85%]'>
              Minister of Mine Virtual Tour sample Video
           </span>
+        <section  data-aos="fade-left" className='border-2 border-[#2748725d] w-[95%] md:w-[85%] h-[20%] mt-5 md:h-[90vh] flex flex-col justify-center  items-center shadow-md rounded-md bg-white mt'>
+          
           <div className='w-[90%] md:w-[70%] h-[50%] '>
           <video
           src={MomVideo}
@@ -105,13 +127,63 @@ function LandingPage({listSelected, setListSelected}) {
           controls
           muted='muted'></video>
           </div>
-          <div className='md:mt-[160px] md:text-2xl text-[#121212d8]'>To experince the full tour 
+          <div className='md:mt-[180px] md:text-2xl text-[#121212d8]'>To experince the full tour  
             <a className='text-blue-600' href='https://eyita-virtualtours.github.io/Ministry-of-Mines/'>
-            clickhere
+             clickhere
             </a>
           </div>
         </section>
        
+      <div  data-aos="fade-right" className='w-[100%] bg-[#0b18309c] gap-9 md:w-[85%] h-[90vh] flex mt-[10vh] justify-center items-center flex-col'>
+           <h1 className='mt-[10px] text-[20px] md:mt-0 md:text-2xl text-[white] mb-[5px]'>Contact us using your email</h1>
+       <form ref={form}  onSubmit={sendEmail}  className=' w-[90%] bg-white shadow-md h-[80%] md:w-[40%] md:h-[70%]  rounded-md flex flex-col gap-3 justify-center items-center'>
+     
+        <div className='w-full h-[2px] bg-[#12121200] mb-6'/>
+        <div className='w-full -mt-6 md:mt-0 flex flex-col md:flex-row justify-center items-center gap-4'>
+          <input  
+           type="text" 
+           placeholder='FirstName' 
+           name="firstName" 
+           className='border-2 border-[#1212122c] h-[35px] md:h-[40px] rounded-md indent-2 w-[80%] md:w-[35%]'
+           onChange={(e)=>setFirstName(e.target.value)}
+           value={firstName}
+           />
+          <input 
+            type="text" 
+            placeholder='LastName' 
+            name='lastName' 
+            className='border-2 border-[#12121238] h-[35px] md:h-[40px] rounded-md indent-2 w-[80%] md:w-[30%]' 
+            onChange={(e)=>setLastName(e.target.value)}
+            value={lastName}
+            />
+        </div>
+        <div className='w-full flex justify-center items-center'>
+          <input 
+            type="email" 
+            placeholder='Email' 
+            name='email' 
+            className='border-2 border-[#12121238] h-[35px] md:h-[40px] rounded-md indent-2 w-[80%] md:w-[68%]' 
+            onChange={(e)=>setEmail(e.target.value)}
+            value={email}
+          />
+        </div>
+        <div className='w-full h-[40%] flex justify-center items-center'>
+         <textarea 
+           placeholder='Message' 
+           name='message' 
+           onChange={(e)=>setMessage(e.target.value)}
+           value={message}
+           className='border-2 border-[#12121227] w-[80%] md:w-[68%] h-[80%] indent-2'></textarea>
+        </div>
+        <input 
+          type="submit" 
+          value={'Submit'} 
+          className='w-[80%] md:w-[50%] h-10 bg-green-400 rounded-md cursor-pointer
+                   text-white font-bold flex justify-center items-center
+                   hover:bg-green-500
+          '/>
+        </form>
+      </div>
         <Footer/>
     </div>
   )
