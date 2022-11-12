@@ -47,7 +47,7 @@ const SignUp = () => {
       </div>
       <div className='md:w-[50%]  h-full flex flex-col items-center justify-center '>
         <div className='sign-form w-[80%] h-[90%] flex justify-center items-center flex-col border-2 border-[#ffffff25]'>
-       <div className='text-xl md:-mt-[100px] text-[#121212c9] -mt-[150px] h-[80px]'>
+       <div className='singUp-image text-xl md:-mt-[100px] text-[#121212c9] -mt-[150px] h-[80px]'>
         <div className='w-[80px] h-[80px] mt-[150px]'>
             <img src={User} alt=""  className='w-[50px] h-[50px]'/>  
         </div>
