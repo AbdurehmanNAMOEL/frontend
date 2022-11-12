@@ -29,7 +29,6 @@ const Home = () => {
   },[])
   return (
     <div className='w-full h-auto  flex flex-col'>
-        {load? <div className='absolute w-full h-full bg-slate-500'><Loader/></div> :''}
      <NavBar
      path={'/'}
      buttonLabel={'Home'} 

@@ -13,11 +13,12 @@ import MomVideo from '../assets/videos/vertualTourOfMOM.mp4'
 import {toast} from 'react-toastify'
 import { useRef } from 'react';
 import emailjs from '@emailjs/browser';
+import Modal from '../components/Modal';
 let count=0;
 let intervalId;
 
 
-function LandingPage({listSelected, setListSelected}) {
+function LandingPage() {
     
   const form = useRef()
   const [firstName,setFirstName]=useState('')
@@ -41,6 +42,14 @@ function LandingPage({listSelected, setListSelected}) {
     const [titles,setTitle]=useState(titleArray[0])
     let imageLength=array.length
     let interval=5000;
+    const [modalData,setModalData]=useState([])
+    const [isModalVisible,setModalState]=useState(false)
+
+const handleModal=(product)=>{
+    setModalData(product)
+    setModalState(pre=>!isModalVisible)
+  
+ }
     const slide=()=>{
      setImage(array[count])
      setTitle(titleArray[count])
@@ -69,6 +78,7 @@ function LandingPage({listSelected, setListSelected}) {
 
   return (
     <div className='landing-page-container w-full gap-2 bg-[#868686] flex flex-col items-center justify-center'>
+    
        <div className='w-full' >
         <Navbar2
          path={'/'}
@@ -76,10 +86,16 @@ function LandingPage({listSelected, setListSelected}) {
          email={user?.email}
          profileImage={user?.profileImage}
          bgColor='white'
-         listSelected={listSelected} 
-         setListSelected={setListSelected}
+    
      />
        </div> 
+      <div className='w-[1px] h-[1px] flex justify-center -mt-4'>
+      <Modal
+      modalData={modalData}  
+      setModalState={setModalState} 
+      isModalExist={isModalVisible} 
+      />
+      </div>
         <section style={{backgroundImage:`url(${gemstoneCollection})`,backgroundSize:'cover'}} 
          className='w-full h-[80vh] md:h-[100vh] bg-[#121212]'>
            <div  
@@ -109,7 +125,10 @@ function LandingPage({listSelected, setListSelected}) {
                 <SampleCard
                   key={data.id}
                   title={data.title}
-                  image={data.image}/>
+                  image={data.image}
+                  handleModal={handleModal}
+                  data={data}
+                  />
                 )
              }
         </section>

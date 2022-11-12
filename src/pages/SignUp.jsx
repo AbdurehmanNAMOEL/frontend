@@ -43,7 +43,7 @@ const SignUp = () => {
 
 
   return (
-    <div className='w-full h-[100vh] flex flex-col md:flex-row  shadow-md rounded-md '>
+    <div className='w-full h-[100vh] flex flex-col md:flex-row bg-[#1616169d] shadow-md rounded-md '>
       <div className='signup-image w-[50%] h-full flex justify-center items-center'>
       <img src={Stone} alt ='' className='h-[90%] w-[80%]  flex flex-col'/>
       </div>

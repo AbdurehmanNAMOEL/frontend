@@ -16,6 +16,11 @@ const Navbar2 = ({email,profileImage,bgColor,listSelected,setListSelected}) => {
   }
   return (
     <div className="fixed z-[100] flex w-full h-[70px] bg-white shadow-md">
+    <Menu
+      isMenu={isMenu}
+      displayMenuBar={displayMenuBar}
+      profileImage={profileImage}
+    />
     <nav
      style={{backgroundColor:`${bgColor?bgColor:'white'}`}} 
      className='hidden md:flex  w-full h-[70px] bg-white justify-between items-center'>
@@ -64,11 +69,7 @@ const Navbar2 = ({email,profileImage,bgColor,listSelected,setListSelected}) => {
       </ul>
     </nav>
 
-  <Menu
-  isMenu={isMenu}
-  displayMenuBar={displayMenuBar}
-  profileImage={profileImage}
- />
+
     </div>
   )
 }

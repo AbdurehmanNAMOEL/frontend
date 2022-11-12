@@ -1,0 +1,54 @@
+
+
+
+
+@media screen and (min-width:220px) and (max-width:480px) {
+  .modal-inner-container{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+.modal-close-btn{
+    height: 100%;
+    width: 60px;
+    
+}
+.modal-image{
+    width: 60%;
+    margin-top: 20px;
+}
+}
+
+
+@media screen and (min-width:480px) and (max-width:768px)   {
+  .modal-inner-container{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+.modal-close-btn{
+    height: 100%;
+    width: 60px;
+    
+}
+.modal-image{
+    width: 60%;
+    margin-top: 20px;
+}
+  
+}
+
+
+@media screen and (min-width : 768px) {
+.modal-image{
+    width: 60%;
+     height: 80%;
+}
+.modal-close-btn{
+    height: 100%;
+    width: 60px;
+    
+}
+}

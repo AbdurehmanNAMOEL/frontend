@@ -11,7 +11,7 @@ const UnOrderList = ({listSelected,setListSelected}) => {
          <li
          key={data.id}   
          name={data.title}
-         onClick={(e)=>setListSelected(e.target.name)}
+        //  onClick={(e)=>setListSelected(e.target.name)}
          style={{color:`${listSelected === data.title ? "cyan":"#12121283"}`}}  
          >
          <Link to={data.link}>

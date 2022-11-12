@@ -1,9 +1,6 @@
 import '../style/sampleCard.css'
 
-
-function SampleCard({title,image,id,price,toggleClicked,data, handleModal}) {
-
-  console.log(data)
+function SampleCard({title,image,id,price,toggleClicked,data,handleModal}) {
   return (
     <div className="card-big-container" id={id}
          style={{backgroundColor:` ${toggleClicked ? 

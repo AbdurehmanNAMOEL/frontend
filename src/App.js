@@ -1,32 +1,36 @@
-import SignUp from "./pages/SignUp";
 import { BrowserRouter ,Routes,Route } from 'react-router-dom';
-import Login from "./pages/Login";
-import Home from "./pages/Home";
-import AboutUs from "./pages/AboutUs";
-import ContactUs from "./pages/ContactUs";
-import Upload from "./pages/Upload";
+
 import PrivateRoutes from "./utils/PrivateRoutes";
  import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { useEffect, useState} from "react";
+import { Suspense, useEffect, useState} from "react";
 import { useSelector } from "react-redux";
-import Profile from "./pages/Profile";
-import LandingPage from "./pages/LandingPage";
-import Footer from "./components/Footer";
 import ForgetPassword from "./pages/ForgetPassword";
-import Navbar2 from "./components/NavBar";
 import PageIsNotFound from "./components/PageIsNotFound";
+import { lazy } from "react";
+
+const LandingPage = lazy(()=>import('./pages/LandingPage'))
+const Home = lazy(()=>import('./pages/Home'))
+const Profile = lazy(()=>import('./pages/Profile'))
+const Upload = lazy(()=>import('./pages/Upload'))
+const SignUp = lazy(()=>import('./pages/SignUp'))
+const AboutUs = lazy(()=>import('./pages/AboutUs'))
+const ContactUs = lazy(()=>import('./pages/ContactUs'))
+const Login = lazy(()=>import('./pages/Login'))
+
 
 function App() {
  
   const {isLoggedIn} = useSelector(state=>state.auth)
   const [listSelected,setListSelected] = useState('')
 
+
 useEffect(()=>{},[isLoggedIn])
   return (
     <div className="w-full h-auto flex justify-center items-center ">
       <BrowserRouter>
       <ToastContainer/>
+       <Suspense fallback={<h1>Loading....</h1>}>
       <Routes>
       <Route element={<PrivateRoutes isLoggedIn={isLoggedIn}/>}>
       <Route path={'/home'} exact  element={<Home listSelected={listSelected} setListSelected={setListSelected}/>}/>
@@ -43,6 +47,7 @@ useEffect(()=>{},[isLoggedIn])
       <Route path={'/password'} exact  element={<ForgetPassword/>}/>
       <Route exact path="/*" element={<PageIsNotFound/>}/>
      </Routes>
+     </Suspense>
      </BrowserRouter>
      
     </div>
