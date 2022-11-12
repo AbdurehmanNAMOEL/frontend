@@ -8,6 +8,7 @@ import { useSelector } from "react-redux";
 import ForgetPassword from "./pages/ForgetPassword";
 import PageIsNotFound from "./components/PageIsNotFound";
 import { lazy } from "react";
+import Loader from './components/Loader';
 
 const LandingPage = lazy(()=>import('./pages/LandingPage'))
 const Home = lazy(()=>import('./pages/Home'))
@@ -21,16 +22,16 @@ const Login = lazy(()=>import('./pages/Login'))
 
 function App() {
  
-  const {isLoggedIn} = useSelector(state=>state.auth)
+  const {isLoggedIn,load} = useSelector(state=>state.auth)
   const [listSelected,setListSelected] = useState('')
-
+  
 
 useEffect(()=>{},[isLoggedIn])
   return (
     <div className="w-full h-auto flex justify-center items-center ">
       <BrowserRouter>
       <ToastContainer/>
-       <Suspense fallback={<h1>Loading....</h1>}>
+       <Suspense fallback={<div className='w-full h-full bg-slate-500'><Loader/></div>}>
       <Routes>
       <Route element={<PrivateRoutes isLoggedIn={isLoggedIn}/>}>
       <Route path={'/home'} exact  element={<Home listSelected={listSelected} setListSelected={setListSelected}/>}/>

@@ -7,13 +7,15 @@ import Navbar2 from '../components/NavBar';
 import SampleCard from '../components/SampleCard';
 import '../style/landingpage.css';
 import  Aos  from 'aos';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Footer from '../components/Footer';
 import MomVideo from '../assets/videos/vertualTourOfMOM.mp4'
 import {toast} from 'react-toastify'
 import { useRef } from 'react';
 import emailjs from '@emailjs/browser';
 import Modal from '../components/Modal';
+import { getStone } from '../redux/features/gemstoneSlice';
+import { getSeller } from '../redux/features/authSlice';
 let count=0;
 let intervalId;
 
@@ -25,9 +27,11 @@ function LandingPage() {
   const [lastName,setLastName]=useState('')
   const [email,setEmail]=useState('')
   const [message,setMessage]=useState('')
+  const dispatch = useDispatch()
+
   const sendEmail = (e) => {
     e.preventDefault()
-    emailjs.sendForm('gmail', 'template_ft3gg8b',form.current, 'NqKFG5yFZi3hU0nnJ')
+    emailjs.sendForm('gmail','template_ft3gg8b',form.current,'NqKFG5yFZi3hU0nnJ')
       .then((result) => {
          toast.success(result.data)
       }, (error) => {
@@ -35,36 +39,37 @@ function LandingPage() {
       });
   };
  
-    let array=gemStoneCategories.map(item=>{return item.image})
-    const {user} = useSelector(state=>state.auth)
-    const [image,setImage]=useState(array[0])
-    let titleArray=gemStoneCategories.map(item=>{return item.name})
-    const [titles,setTitle]=useState(titleArray[0])
-    let imageLength=array.length
-    let interval=5000;
-    const [modalData,setModalData]=useState([])
-    const [isModalVisible,setModalState]=useState(false)
+  let array=gemStoneCategories.map(item=>{return item.image})
+  const {user} = useSelector(state=>state.auth)
+  const [image,setImage]=useState(array[0])
+  let titleArray=gemStoneCategories.map(item=>{return item.name})
+  const [titles,setTitle]=useState(titleArray[0])
+  let imageLength=array.length
+  let interval=5000;
+  const [modalData,setModalData]=useState([])
+  const [isModalVisible,setModalState]=useState(false)
 
-const handleModal=(product)=>{
+  const handleModal=(product)=>{
     setModalData(product)
     setModalState(pre=>!isModalVisible)
   
  }
-    const slide=()=>{
-     setImage(array[count])
-     setTitle(titleArray[count])
+  
+  const slide=()=>{
+    setImage(array[count])
+    setTitle(titleArray[count])
     
-    }
+  }
 
-    const handleInterval=()=>{
-        intervalId= setInterval(slide,interval)
-    }  
+  const handleInterval=()=>{
+    intervalId= setInterval(slide,interval)
+  }  
 
-    useEffect(()=>{
-      if(count<imageLength-1){
-         handleInterval()
+  useEffect(()=>{
+    if(count<imageLength-1){
+        handleInterval()
         count++;
-      }else {
+    }else {
         clearInterval(intervalId)
         count=0
       };
@@ -73,7 +78,8 @@ const handleModal=(product)=>{
 
   useEffect(()=>{
     Aos.init({duration:2000})
-    
+    dispatch(getStone());
+    dispatch(getSeller())
    },[])
 
   return (

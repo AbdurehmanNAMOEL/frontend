@@ -25,8 +25,7 @@ export const logIn =createAsyncThunk('user/logIn',async({userData,toast,navigate
     try {
          const response = await axios.post('https://seller-site.herokuapp.com/home/signIn',userData)
          toast.success(`welcome ${userData.name}`)
-         console.log('data',response.data);
-         navigate('/home')
+         navigate('/')
          return response.data
     } catch (error) {
         toast.error(error.response.data.error)

@@ -6,10 +6,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import {toast} from 'react-toastify'
 import { googleLogIn, logIn } from '../redux/features/authSlice'
-import Navbar2 from '../components/NavBar'
 import { useEffect } from 'react'
 import '../style/login.css'
-import { auth } from '../firebase'
 import GoogleButton from 'react-google-button'
 const Login = () => {
 
