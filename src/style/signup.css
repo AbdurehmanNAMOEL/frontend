@@ -1,7 +1,7 @@
 @media screen and (min-width:220px) and (max-width:480px) {
   .signup-image{
      width: 95%;
-     height: 400px;
+     height: 300px;
      margin-top: 20px;     
    
     }
@@ -9,6 +9,7 @@
         width: 95%;
         height: 500px;
         margin-top: 30px;
+        margin-bottom: 100px;
     }
    
 }
