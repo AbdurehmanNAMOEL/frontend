@@ -108,7 +108,7 @@ const SignUp = () => {
       setValue={setConfirmPassword}
       value ={confirmPassword}
       name='password' 
-      error={' confirmPassword required is required'}
+      error={' confirmPassword is required'}
       />
       
       <InputField 
