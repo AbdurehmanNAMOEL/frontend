@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import {FaTimes,FaBars,FaSun,FaMoon} from 'react-icons/fa'
+import {FaTimes,FaBars} from 'react-icons/fa'
 import {motion} from 'framer-motion'
 import Logo from '../images/ethiopiaLogo.jpg'
 import User from '../images/user.gif'

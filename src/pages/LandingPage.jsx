@@ -170,7 +170,7 @@ function LandingPage() {
        <form ref={form}  onSubmit={sendEmail}  className=' w-[90%] bg-white shadow-md h-[80%] md:w-[40%] md:h-[70%]  rounded-md flex flex-col justify-center items-center'>
      
         <div className='w-full h-[2px] bg-[#12121200] mb-6'/>
-        <div className='w-[85%] -mt-10 md:mt-0 flex flex-col md:flex-row justify-center items-center gap-4'>
+        <div className='w-full md:w-[85%] -mt-10 md:mt-0 flex flex-col md:flex-row justify-center items-center gap-4'>
         <InputField 
           type='text' 
           color={'#121212'}
@@ -183,7 +183,7 @@ function LandingPage() {
        />
  
         </div>
-        <div className='w-[85%] flex justify-center items-center'>
+        <div className='w-full md:w-[85%] flex justify-center items-center'>
         <InputField 
           type='email' 
           color={'#121212'}
