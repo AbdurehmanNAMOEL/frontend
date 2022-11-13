@@ -13,6 +13,7 @@ import { toast } from 'react-toastify';
 import { useEffect } from 'react';
 import GoogleButton from 'react-google-button';
 
+
 const SignUp = () => {
   
    const dispatch = useDispatch()
@@ -23,12 +24,13 @@ const SignUp = () => {
    const [phoneNumber,setPhoneNumber]= useState('')
    const [profileImage,setProfileImage] = useState('')
    const navigate = useNavigate()
+   const [error,setError]=useState('')
  
    const onSubmit=(e)=>{
 
     e.preventDefault()
   
-    const userData = { 
+    let userData = { 
       name:name,
       email:email,
       password:password,
@@ -36,8 +38,12 @@ const SignUp = () => {
       phoneNumber:phoneNumber,
       profileImage:profileImage
     }
-    dispatch(createAccount({userData,toast,navigate}))
-
+    if(confirmPassword===password){
+      dispatch(createAccount({userData,toast,navigate}))
+    }else {
+      toast.error('password must match confirmPassword')
+    }
+     
    }
 
   return (
@@ -72,7 +78,7 @@ const SignUp = () => {
        type='text' 
        id={'1'}
        placeholder={'Enter fullName'} 
-       title='Name'
+       title='fullName'
        setValue={setName}
        value ={name}
        name='userName'
@@ -108,7 +114,7 @@ const SignUp = () => {
       setValue={setConfirmPassword}
       value ={confirmPassword}
       name='password' 
-      error={' confirmPassword is required'}
+      error={error}
       />
       
       <InputField 
@@ -119,7 +125,7 @@ const SignUp = () => {
       setValue={setPhoneNumber}
       value ={phoneNumber}
       name='phoneNumber'
-      error={' valid phoneNumber is required'}
+      error={'valid phoneNumber is required'}
       />
     
       <span className='w-full flex ml-[220px] md:ml-[320px] mb-2'>

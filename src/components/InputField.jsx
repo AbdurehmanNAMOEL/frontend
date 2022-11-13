@@ -3,16 +3,17 @@ import { useState } from 'react';
 import { pattern } from '../verifier/patternVerifier';
 import {FaEyeSlash,FaEye} from 'react-icons/fa'
 let isPassword=false
-const InputField = ({title,type,placeholder,error,setValue,value,name,id}) => {
+const InputField = ({title,type,placeholder,error,setValue,value,name,id,color}) => {
 
 
 const [isValid,setValid] = useState(false)
+const [isPassword,setIsPassword] = useState(false)
 const [isEmpity,setEmpty] = useState()
 const [passwordType,setType]=useState('password')
 
 const showPassword=()=>{
-    isPassword=!isPassword
-    if(isPassword){
+    setIsPassword(preValue=>!isPassword)
+    if(!isPassword){
       setType('text')
     }else setType('password')
 }
@@ -33,7 +34,7 @@ const handleInput =(e)=>{
 }
   return (
     <div className='w-[80%] h-auto mb-3 flex flex-col -mt-1'>
-        <label className='text-white mb-1 text-[14px]'>{title}</label>
+      <label className={`text-${color?color:'white'} mb-1 text-[14px]`}>{title}</label>
       <div className='w-[100%] h-[35px] flex bg-red-400'>  
       <input 
         type={name==='password'?passwordType:type} 

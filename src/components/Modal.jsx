@@ -10,7 +10,7 @@ const Modal = ({isModalExist,modalData,setModalState}) => {
                    z-[3000] fixed flex  justify-center md:flex-col
                    items-center'>
 
-         <div className='w-[80%] h-[60%] flex bg-white z-30 flex-col '>
+         <div className='main-container w-[80%] h-[60%] flex bg-white z-30 flex-col '>
           <div className='w-full h-10  flex justify-end items-center'>
             <div className='modal-close-btn text-2xl cursor-pointer
                          text-white bg-blue-500 flex justify-center
@@ -28,8 +28,6 @@ const Modal = ({isModalExist,modalData,setModalState}) => {
                                  px-5 w-full h-[30%] flex 
                                   justify-center items-center'
                                   >{modalData?.name}</h1>
-
-         
             </div>
           </div>
          </div>

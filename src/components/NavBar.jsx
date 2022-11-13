@@ -19,6 +19,7 @@ const Navbar2 = ({email,profileImage,bgColor,listSelected,setListSelected}) => {
     <Menu
       isMenu={isMenu}
       displayMenuBar={displayMenuBar}
+      email={email}
       profileImage={profileImage}
     />
     <nav
@@ -36,7 +37,7 @@ const Navbar2 = ({email,profileImage,bgColor,listSelected,setListSelected}) => {
         </li>
 
         <li className='cursor-pointer h-[70px] flex justify-center items-center hover:text-[#4cebe3]'>
-         { profileImage ? <Link to={`${profileImage?'/Home': '/'}`}>
+         { email ? <Link to={`${email?'/Home': '/'}`}>
            DashBoard  
           </Link>:''}
         </li>
@@ -55,13 +56,13 @@ const Navbar2 = ({email,profileImage,bgColor,listSelected,setListSelected}) => {
             </ul>
         </li>
 
-         { profileImage?
+         { email?
          <li className='cursor-pointer h-[70px] flex justify-center items-center hover:text-[#4cebe3]'> 
           <img src={profileImage} alt="" className='w-[40px] h-[40px] rounded-full border-2 border-[#1212129f]' />
          </li> 
         :''}
         {
-        !profileImage?
+        !email?
         <li className='w-[100px] rounded-md mt-[0px] -ml-10 text-[#121212c0] border-2 border-[pink] cursor-pointer h-[34px] flex justify-center items-center hover:bg-[pink] hover:text-white'>
         <Link to={'/login'}>LogIn</Link>
         </li>:''

@@ -7,7 +7,7 @@ import User from '../images/user.gif'
 import './miniContainer.css'
 import { useDispatch } from 'react-redux'
 import { logOut } from '../redux/features/authSlice'
-const Menu = ({isMenu,displayMenuBar,profileImage,toggleClicked}) => {
+const Menu = ({isMenu,displayMenuBar,email,profileImage,toggleClicked}) => {
    const dispatch = useDispatch()
   return (
 <div className='flex md:hidden  flex-row w-full items-center justify-between'>
@@ -15,7 +15,7 @@ const Menu = ({isMenu,displayMenuBar,profileImage,toggleClicked}) => {
        <img src={Logo} alt="" className='h-16' />
    </Link>
     <div className='user-image cursor-pointer -ml-[150px] h-[70px] flex justify-center items-center hover:text-[#4cebe3]'>
-          <img src={profileImage ? profileImage:User} alt="" className='w-[40px] h-[40px] rounded-full border-2 border-[#1212129f]' />
+          <img src={email ? profileImage:User} alt="" className='w-[40px] h-[40px] rounded-full border-2 border-[#1212129f]' />
      </div>
 
   <div>
@@ -33,16 +33,16 @@ const Menu = ({isMenu,displayMenuBar,profileImage,toggleClicked}) => {
                animate={{y:0}}
                transition={{type:'spring'}}
     >
-    { profileImage?<span   className='bg-white cursor-pointer justify-start flex p-3  items-center w-full h-8 hover:bg-green-300 '><Link to={'/'} className='ml-[30px]'>Home</Link></span>:''}
+    { email ?<span   className='bg-white cursor-pointer justify-start flex p-3  items-center w-full h-8 hover:bg-green-300 '><Link to={'/'} className='ml-[30px]'>Home</Link></span>:''}
      <span  className='cursor-pointer flex justify-start items-center w-full h-8 p-3 hover:bg-green-300'>
-       <Link className='ml-[30px]' to={`${profileImage?'/Home': '/'}`}>{`${profileImage?'DashBoard': 'Home'}`}</Link>
+       <Link className='ml-[30px]' to={`${email?'/Home': '/'}`}>{`${email?'DashBoard': 'Home'}`}</Link>
     </span>
 
      <span   className='bg-white cursor-pointer justify-start flex p-3  items-center w-full h-8 hover:bg-green-300 '><Link to={'/upload'} className='ml-[30px]'>Upload</Link></span>
      <span  className='cursor-pointer flex justify-start p-3 items-center w-full hover:bg-green-300 h-8'><Link  to={'/contactUs'} className='ml-[30px]'>Contact Us</Link></span>
      <span   className='cursor-pointer flex justify-start p-3 items-center w-full hover:bg-green-300 h-8'><Link to={'/aboutUs'} className='ml-[30px]'>About Us</Link></span>
      <span   className='cursor-pointer flex justify-start p-3 items-center w-full hover:bg-green-300 h-8'><Link to={'/profile'} className='ml-[30px]'>ProFile</Link></span>
-    { profileImage ? <span onClick={()=>dispatch(logOut())}   className='cursor-pointer p-3 flex justify-start items-center w-full hover:bg-green-300 h-8'>
+    { email ? <span onClick={()=>dispatch(logOut())}   className='cursor-pointer p-3 flex justify-start items-center w-full hover:bg-green-300 h-8'>
       <Link to={'/'} className='ml-[30px]'>LogOut</Link>
     </span>:<span   className='bg-white cursor-pointer justify-start flex p-3  items-center w-full h-8 hover:bg-green-300 '><Link to={'/login'} className='ml-[30px]'>Login</Link></span>}
   </motion.div>}

@@ -16,6 +16,7 @@ import emailjs from '@emailjs/browser';
 import Modal from '../components/Modal';
 import { getStone } from '../redux/features/gemstoneSlice';
 import { getSeller } from '../redux/features/authSlice';
+import InputField from '../components/InputField';
 let count=0;
 let intervalId;
 
@@ -23,17 +24,24 @@ let intervalId;
 function LandingPage() {
     
   const form = useRef()
-  const [firstName,setFirstName]=useState('')
+  const [fullName,setFullName]=useState('')
   const [lastName,setLastName]=useState('')
   const [email,setEmail]=useState('')
   const [message,setMessage]=useState('')
+  
   const dispatch = useDispatch()
 
   const sendEmail = (e) => {
     e.preventDefault()
     emailjs.sendForm('gmail','template_ft3gg8b',form.current,'NqKFG5yFZi3hU0nnJ')
       .then((result) => {
-         toast.success(result.data)
+        
+         toast.success('sent')
+         setEmail('')
+         setFullName('')
+         setLastName('')
+         setMessage('')
+        
       }, (error) => {
            toast.error(error.text)
       });
@@ -91,10 +99,9 @@ function LandingPage() {
          buttonLabel={'Home'} 
          email={user?.email}
          profileImage={user?.profileImage}
-         bgColor='white'
-    
-     />
-       </div> 
+         bgColor='white'/>
+       </div>
+
       <div className='w-[1px] h-[1px] flex justify-center -mt-4'>
       <Modal
       modalData={modalData}  
@@ -102,6 +109,7 @@ function LandingPage() {
       isModalExist={isModalVisible} 
       />
       </div>
+
         <section style={{backgroundImage:`url(${gemstoneCollection})`,backgroundSize:'cover'}} 
          className='w-full h-[80vh] md:h-[100vh] bg-[#121212]'>
            <div  
@@ -159,36 +167,33 @@ function LandingPage() {
        
       <div  data-aos="fade-right" className='w-[100%] bg-[#0b18309c] gap-9 md:w-[85%] h-[90vh] flex mt-[10vh] justify-center items-center flex-col'>
            <h1 className='mt-[10px] text-[20px] md:mt-0 md:text-2xl text-[white] mb-[5px]'>Contact us using your email</h1>
-       <form ref={form}  onSubmit={sendEmail}  className=' w-[90%] bg-white shadow-md h-[80%] md:w-[40%] md:h-[70%]  rounded-md flex flex-col gap-3 justify-center items-center'>
+       <form ref={form}  onSubmit={sendEmail}  className=' w-[90%] bg-white shadow-md h-[80%] md:w-[40%] md:h-[70%]  rounded-md flex flex-col justify-center items-center'>
      
         <div className='w-full h-[2px] bg-[#12121200] mb-6'/>
-        <div className='w-full -mt-6 md:mt-0 flex flex-col md:flex-row justify-center items-center gap-4'>
-          <input  
-           type="text" 
-           placeholder='FirstName' 
-           name="firstName" 
-           className='border-2 border-[#1212122c] h-[35px] md:h-[40px] rounded-md indent-2 w-[80%] md:w-[35%]'
-           onChange={(e)=>setFirstName(e.target.value)}
-           value={firstName}
-           />
-          <input 
-            type="text" 
-            placeholder='LastName' 
-            name='lastName' 
-            className='border-2 border-[#12121238] h-[35px] md:h-[40px] rounded-md indent-2 w-[80%] md:w-[30%]' 
-            onChange={(e)=>setLastName(e.target.value)}
-            value={lastName}
-            />
+        <div className='w-[85%] -mt-10 md:mt-0 flex flex-col md:flex-row justify-center items-center gap-4'>
+        <InputField 
+          type='text' 
+          color={'#121212'}
+          placeholder={'Enter fullName'} 
+          title='name'
+          setValue={setFullName}
+          value ={fullName}
+          name='userName'
+          error={'valid name is required'}
+       />
+ 
         </div>
-        <div className='w-full flex justify-center items-center'>
-          <input 
-            type="email" 
-            placeholder='Email' 
-            name='email' 
-            className='border-2 border-[#12121238] h-[35px] md:h-[40px] rounded-md indent-2 w-[80%] md:w-[68%]' 
-            onChange={(e)=>setEmail(e.target.value)}
-            value={email}
-          />
+        <div className='w-[85%] flex justify-center items-center'>
+        <InputField 
+          type='email' 
+          color={'#121212'}
+          placeholder={'Enter here'} 
+          title='Email'
+          setValue={setEmail}
+          value ={email}
+          name='email'
+          error={'valid email is required'}
+        />
         </div>
         <div className='w-full h-[40%] flex justify-center items-center'>
          <textarea 
