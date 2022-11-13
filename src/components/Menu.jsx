@@ -14,9 +14,7 @@ const Menu = ({isMenu,displayMenuBar,email,profileImage,toggleClicked}) => {
   <Link to='/' className="w-40">
        <img src={Logo} alt="" className='h-16' />
    </Link>
-    <div className='user-image cursor-pointer -ml-[150px] h-[70px] flex justify-center items-center hover:text-[#4cebe3]'>
-          <img src={email ? profileImage:User} alt="" className='w-[40px] h-[40px] rounded-full border-2 border-[#1212129f]' />
-     </div>
+  
 
   <div>
     <div className="text-md mr-8 cursor-pointer">
@@ -28,11 +26,15 @@ const Menu = ({isMenu,displayMenuBar,email,profileImage,toggleClicked}) => {
     </div>
 
     { isMenu && <motion.div 
-               className=" mini-container rounded-sm fixed gap-4 top-[75px] right-[90px] flex justify-center items-center flex-col w-[70%] h-[350px] bg-white shadow-md"
+               className=" mini-container rounded-sm fixed gap-4 top-[75px] right-[90px] flex justify-center items-center flex-col w-[70%] h-[450px] bg-white shadow-md"
                initial={{y:-400}}
                animate={{y:0}}
                transition={{type:'spring'}}
     >
+    <div className='user-image w-full gap-2 cursor-pointer  h-[50px] flex justify-start items-center hover:text-[#4cebe3]'>
+          <img src={email ? profileImage:User} alt="" className='ml-[20px] w-[40px] h-[40px] rounded-full border-2 border-[#941b1b9f]' />
+          <span className='text-[13px] text-[#121212a6] mt-4'>{email?email:'Email'}</span>
+     </div>
     { email ?<span   className='bg-white cursor-pointer justify-start flex p-3  items-center w-full h-8 hover:bg-green-300 '><Link to={'/'} className='ml-[30px]'>Home</Link></span>:''}
      <span  className='cursor-pointer flex justify-start items-center w-full h-8 p-3 hover:bg-green-300'>
        <Link className='ml-[30px]' to={`${email?'/Home': '/'}`}>{`${email?'DashBoard': 'Home'}`}</Link>

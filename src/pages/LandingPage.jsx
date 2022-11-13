@@ -175,7 +175,7 @@ function LandingPage() {
           type='text' 
           color={'#121212'}
           placeholder={'Enter fullName'} 
-          title='name'
+          title='FullName'
           setValue={setFullName}
           value ={fullName}
           name='userName'
