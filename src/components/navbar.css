@@ -5,11 +5,11 @@
   
 }
 .user-detail::before{
-    content: '';
-    width: 3px;
-    position: absolute;
-    height: 20px;
-    margin-top: -20px;
+  content: '';
+  width: 3px;
+  position: absolute;
+  height: 20px;
+  margin-top: -20px;
   border-top: 10px solid transparent;
   border-right: 10px solid transparent;
   border-left: 10px solid transparent;

@@ -27,6 +27,14 @@ const ContactUs = () => {
       });
   };
  
+  useEffect(()=>{
+    if(user){
+      setEmail(user?.email)
+      name=user?.name?.split(' ')
+      setFirstName(name[0])
+      setLastName([name[1]])
+    }
+  },[])
 
   return (
      <div className='flex flex-col w-full bg-[#121212]'>
@@ -46,7 +54,6 @@ const ContactUs = () => {
            placeholder='FirstName' 
            name="firstName" 
            className='border-2 border-[#1212122c] h-[35px] md:h-[40px] rounded-md indent-2 w-[80%] md:w-[35%]'
-           onChange={(e)=>setFirstName(e.target.value)}
            value={firstName}
            />
           <input 
@@ -54,7 +61,6 @@ const ContactUs = () => {
             placeholder='LastName' 
             name='lastName' 
             className='border-2 border-[#12121238] h-[35px] md:h-[40px] rounded-md indent-2 w-[80%] md:w-[30%]' 
-            onChange={(e)=>setLastName(e.target.value)}
             value={lastName}
             />
         </div>
@@ -64,7 +70,6 @@ const ContactUs = () => {
             placeholder='Email' 
             name='email' 
             className='border-2 border-[#12121238] h-[35px] md:h-[40px] rounded-md indent-2 w-[80%] md:w-[68%]' 
-            onChange={(e)=>setEmail(e.target.value)}
             value={email}
           />
         </div>

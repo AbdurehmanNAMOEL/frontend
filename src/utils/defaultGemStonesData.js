@@ -33,7 +33,5 @@ export const gemStoneCategories=[
 export const navData=[
     // {"id":"a","title":'Home','link':'/'},
     // {"id":"b","title":'DashBoard','link':'/dashBoard'},
-    {"id":"c","title":'Upload','link':'/upload'},
-    {"id":"d","title":'ContactUs','link':'/contactUs'},
     {"id":"e","title":'AboutUs','link':'/aboutUs'}
 ]

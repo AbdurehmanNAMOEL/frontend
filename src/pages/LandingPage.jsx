@@ -24,24 +24,19 @@ let intervalId;
 function LandingPage() {
     
   const form = useRef()
-  const [fullName,setFullName]=useState('')
-  const [lastName,setLastName]=useState('')
-  const [email,setEmail]=useState('')
-  const [message,setMessage]=useState('')
-  
+  const [userData,setUserData]=useState(
+  {fullName:'',
+    email:'',
+    message:''
+  })
   const dispatch = useDispatch()
 
   const sendEmail = (e) => {
     e.preventDefault()
     emailjs.sendForm('gmail','template_ft3gg8b',form.current,'NqKFG5yFZi3hU0nnJ')
       .then((result) => {
-        
          toast.success('sent')
-         setEmail('')
-         setFullName('')
-         setLastName('')
-         setMessage('')
-        
+         setUserData({fullName:'',email:'',message:''})
       }, (error) => {
            toast.error(error.text)
       });
@@ -91,7 +86,7 @@ function LandingPage() {
    },[])
 
   return (
-    <div className='landing-page-container w-full gap-2 bg-[#868686] flex flex-col items-center justify-center'>
+    <div className='landing-page-container smooth w-full gap-2 bg-[#868686] flex flex-col items-center justify-center'>
     
        <div className='w-full' >
         <Navbar2
@@ -149,7 +144,7 @@ function LandingPage() {
         <span className=' text-2xl p-2 md:p-4 text-[#121212c9]  w-[85%]'>
              Minister of Mine Virtual Tour sample Video
           </span>
-        <section  data-aos="fade-left" className='border-2 border-[#2748725d] w-[95%] md:w-[85%] h-[20%] mt-5 md:h-[90vh] flex flex-col justify-center  items-center shadow-md rounded-md bg-white mt'>
+        <section id='VrTour'  data-aos="fade-left" className='border-2 border-[#2748725d] w-[95%] md:w-[85%] h-[20%] mt-5 md:h-[90vh] flex flex-col justify-center  items-center shadow-md rounded-md bg-white mt'>
           
           <div className='w-[90%] md:w-[70%] h-[50%] '>
           <video
@@ -164,8 +159,8 @@ function LandingPage() {
             </a>
           </div>
         </section>
-       
-      <div  data-aos="fade-right" className='w-[100%] bg-[#0b18309c] gap-9 md:w-[85%] h-[90vh] flex mt-[10vh] justify-center items-center flex-col'>
+{/*        
+      <div id='contactUs' data-aos="fade-right" className='w-[100%] bg-[#0b18309c] gap-9 md:w-[85%] h-[90vh] flex mt-[10vh] justify-center items-center flex-col'>
            <h1 className='mt-[10px] text-[20px] md:mt-0 md:text-2xl text-[white] mb-[5px]'>Contact us using your email</h1>
        <form ref={form}  onSubmit={sendEmail}  className=' w-[90%] bg-white shadow-md h-[80%] md:w-[40%] md:h-[70%]  rounded-md flex flex-col justify-center items-center'>
      
@@ -176,8 +171,8 @@ function LandingPage() {
           color={'#121212'}
           placeholder={'Enter fullName'} 
           title='FullName'
-          setValue={setFullName}
-          value ={fullName}
+          setValue={setUserData}
+          value ={userData.fullName}
           name='userName'
           error={'valid name is required'}
        />
@@ -189,8 +184,8 @@ function LandingPage() {
           color={'#121212'}
           placeholder={'Enter here'} 
           title='Email'
-          setValue={setEmail}
-          value ={email}
+          setValue={setUserData}
+          value ={userData.email}
           name='email'
           error={'valid email is required'}
         />
@@ -199,8 +194,8 @@ function LandingPage() {
          <textarea 
            placeholder='Message' 
            name='message' 
-           onChange={(e)=>setMessage(e.target.value)}
-           value={message}
+           onChange={(e)=>setUserData(e.target.value)}
+           value={userData.message}
            className='border-2 border-[#12121227] w-[80%] md:w-[68%] h-[80%] indent-2'></textarea>
         </div>
         <input 
@@ -211,7 +206,7 @@ function LandingPage() {
                    hover:bg-green-500
           '/>
         </form>
-      </div>
+      </div> */}
         <Footer/>
     </div>
   )

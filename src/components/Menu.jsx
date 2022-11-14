@@ -14,7 +14,6 @@ const Menu = ({isMenu,displayMenuBar,email,profileImage,toggleClicked}) => {
   <Link to='/' className="w-40">
        <img src={Logo} alt="" className='h-16' />
    </Link>
-  
 
   <div>
     <div className="text-md mr-8 cursor-pointer">
@@ -26,7 +25,7 @@ const Menu = ({isMenu,displayMenuBar,email,profileImage,toggleClicked}) => {
     </div>
 
     { isMenu && <motion.div 
-               className=" mini-container rounded-sm fixed gap-4 top-[75px] right-[90px] flex justify-center items-center flex-col w-[70%] h-[450px] bg-white shadow-md"
+               className=" mini-container rounded-sm fixed gap-4 top-[75px] right-[90px] flex justify-center items-center flex-col w-[70%] h-auto bg-white shadow-md"
                initial={{y:-400}}
                animate={{y:0}}
                transition={{type:'spring'}}
@@ -40,10 +39,17 @@ const Menu = ({isMenu,displayMenuBar,email,profileImage,toggleClicked}) => {
        <Link className='ml-[30px]' to={`${email?'/Home': '/'}`}>{`${email?'DashBoard': 'Home'}`}</Link>
     </span>
 
-     <span   className='bg-white cursor-pointer justify-start flex p-3  items-center w-full h-8 hover:bg-green-300 '><Link to={'/upload'} className='ml-[30px]'>Upload</Link></span>
-     <span  className='cursor-pointer flex justify-start p-3 items-center w-full hover:bg-green-300 h-8'><Link  to={'/contactUs'} className='ml-[30px]'>Contact Us</Link></span>
+   {email?  <span   className='bg-white cursor-pointer justify-start flex p-3  items-center w-full h-8 hover:bg-green-300 '>
+      <Link to={'/upload'} className='ml-[30px]'>Upload</Link>
+      </span>:null
+    }
+    {email? <span  className='cursor-pointer flex justify-start p-3 items-center w-full hover:bg-green-300 h-8'>
+      <Link  to={'/contactUs'} className='ml-[30px]'>Contact Us</Link>
+    </span>:null}
      <span   className='cursor-pointer flex justify-start p-3 items-center w-full hover:bg-green-300 h-8'><Link to={'/aboutUs'} className='ml-[30px]'>About Us</Link></span>
-     <span   className='cursor-pointer flex justify-start p-3 items-center w-full hover:bg-green-300 h-8'><Link to={'/profile'} className='ml-[30px]'>ProFile</Link></span>
+    {email? <span   className='cursor-pointer flex justify-start p-3 items-center w-full hover:bg-green-300 h-8'>
+      <Link to={'/profile'} className='ml-[30px]'>ProFile</Link>
+    </span>:''}
     { email ? <span onClick={()=>dispatch(logOut())}   className='cursor-pointer p-3 flex justify-start items-center w-full hover:bg-green-300 h-8'>
       <Link to={'/'} className='ml-[30px]'>LogOut</Link>
     </span>:<span   className='bg-white cursor-pointer justify-start flex p-3  items-center w-full h-8 hover:bg-green-300 '><Link to={'/login'} className='ml-[30px]'>Login</Link></span>}

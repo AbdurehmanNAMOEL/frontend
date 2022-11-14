@@ -35,7 +35,7 @@ const handleInput =(e)=>{
   return (
     <div className='w-[80%] h-auto mb-3 flex flex-col -mt-1'>
       <label className={`text-${color?color:'white'} mb-1 text-[14px]`}>{title}</label>
-      <div className='w-[100%] h-[35px] flex bg-red-400'>  
+      <div className='w-[100%] h-[35px] flex bg-white'>  
       <input 
         type={name==='password'?passwordType:type} 
         placeholder={placeholder}
