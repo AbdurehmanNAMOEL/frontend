@@ -9,10 +9,12 @@ axios.interceptors.request.use((req)=>{
   return req;
 })
 
+const basicUrl= 'https://seller-site.herokuapp.com/'
+
 export const createAccount =createAsyncThunk("user/createAccount",async({userData,toast,navigate})=>{
    
     try {
-         const response = await axios.post('https://seller-site.herokuapp.com/home/signup',userData)
+         const response = await axios.post(`${basicUrl}home/signup`,userData)
          toast.success(`welcome ${userData.name}`)
          navigate('/')
          return response.data
@@ -23,7 +25,7 @@ export const createAccount =createAsyncThunk("user/createAccount",async({userDat
 
 export const logIn =createAsyncThunk('user/logIn',async({userData,toast,navigate})=>{
     try {
-         const response = await axios.post('https://seller-site.herokuapp.com/home/signIn',userData)
+         const response = await axios.post(`${basicUrl}home/signIn`,userData)
          toast.success(`welcome ${userData.name}`)
          navigate('/')
          return response.data
@@ -41,7 +43,7 @@ export const googleLogIn =createAsyncThunk('user/googleLogIn',async({toast,navig
               name:result?._tokenResponse?.fullName,
               profileImage:result?._tokenResponse.photoUrl
             }
-         const response = await axios.post('https://seller-site.herokuapp.com/home/google',userData)
+         const response = await axios.post(`${basicUrl}home/google`,userData)
          console.log(response.data);
          toast.success(`Wel-come back ${result?._tokenResponse?.fullName}`)
          navigate('/home')
@@ -53,7 +55,7 @@ export const googleLogIn =createAsyncThunk('user/googleLogIn',async({toast,navig
 
 export const getSeller =createAsyncThunk('user/getUser',async()=>{
     try {
-         const response = await axios.get('https://seller-site.herokuapp.com/home/getUser')
+         const response = await axios.get(`${basicUrl}home/getUser`)
          return response.data
         
     } catch (error) {
@@ -64,7 +66,7 @@ export const getSeller =createAsyncThunk('user/getUser',async()=>{
 
 export const updatePassword =createAsyncThunk('user/updatePassword',async({userData,navigate,toast})=>{
     try {
-         const response = await axios.put('https://seller-site.herokuapp.com/home/update',userData)
+         const response = await axios.put(`${basicUrl}home/update`,userData)
          navigate('/login')
          return response.data
         

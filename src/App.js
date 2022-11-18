@@ -1,7 +1,6 @@
 import { BrowserRouter ,Routes,Route } from 'react-router-dom';
-
 import PrivateRoutes from "./utils/PrivateRoutes";
- import { ToastContainer } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Suspense, useEffect, useState} from "react";
 import { useSelector } from "react-redux";
@@ -34,19 +33,68 @@ useEffect(()=>{},[isLoggedIn])
        <Suspense fallback={<div className='w-full h-full bg-slate-500'><Loader/></div>}>
       <Routes>
       <Route element={<PrivateRoutes isLoggedIn={isLoggedIn}/>}>
-      <Route path={'/home'} exact  element={<Home listSelected={listSelected} setListSelected={setListSelected}/>}/>
-      <Route path={'/profile'} exact  element={<Profile listSelected={listSelected} setListSelected={setListSelected}/>}/>
-      <Route path={'/upload'} exact  element={<Upload/>} listSelected={listSelected} setListSelected={setListSelected}/>
-      <Route path={'/edit/:id'} exact  element={<Upload/>} listSelected={listSelected} setListSelected={setListSelected}/>
+      <Route 
+        path={'/home'} exact  
+        element={<Home listSelected={listSelected} 
+        setListSelected={setListSelected}/>}
+      />
+      <Route 
+       path={'/profile'} exact  
+       element={<Profile 
+       listSelected={listSelected} 
+       setListSelected={setListSelected}/>}
+       />
+      <Route 
+       path={'/upload'} exact  
+       element={<Upload/>} 
+       listSelected={listSelected} 
+       setListSelected={setListSelected}
+      />
+      <Route 
+       path={'/edit/:id'} exact  
+       element={<Upload/>} 
+       listSelected={listSelected} 
+       setListSelected={setListSelected}
+       />
       </Route>  
       
-      <Route path={'/'} exact  element={<LandingPage isLoggedIn={isLoggedIn}/>}/>
-      <Route path={'/signup'} exact  element={<SignUp/>}/>
-      <Route path={'/aboutUs'} exact  element={<AboutUs listSelected={listSelected} setListSelected={setListSelected}/>}/>
-      <Route path={'/contactUs'} exact  element={<ContactUs listSelected={listSelected} setListSelected={setListSelected}/>}/>
-      <Route path={'/login'} exact  element={<Login/>}/>
-      <Route path={'/password'} exact  element={<ForgetPassword/>}/>
-      <Route exact path="/*" element={<PageIsNotFound/>}/>
+      <Route 
+        path={'/'} exact 
+        element={<LandingPage isLoggedIn={isLoggedIn}/>}
+      />
+
+      <Route 
+        path={'/signup'} exact  
+        element={<SignUp/>}
+      />
+
+      <Route 
+       path={'/aboutUs'} exact  
+       element={<AboutUs listSelected={listSelected} 
+       setListSelected={setListSelected}/>}
+      />
+
+      <Route 
+       path={'/contactUs'} exact  
+       element={<ContactUs listSelected={listSelected} 
+       setListSelected={setListSelected}/>}
+      />
+
+      <Route 
+       path={'/login'} exact  
+       element={<Login/>}
+      />
+
+      <Route 
+       path={'/password'} exact  
+       element={<ForgetPassword/>}
+      />
+
+      <Route exact 
+      path="/*" 
+      element={<PageIsNotFound/>}
+      />
+
      </Routes>
      </Suspense>
      </BrowserRouter>

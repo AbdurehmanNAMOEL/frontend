@@ -19,7 +19,7 @@ const ForgetPassword = () => {
     }
   return (
     <div className='w-full h-[100vh]  flex justify-center items-center bg-[#a19e9ec0]'>
-      <div className='w-[400px] flex justify-center items-center flex-col bg-blue-400 h-[200px] shadow-md'>
+      <div className='w-[300px] md:w-[400px] flex justify-center items-center flex-col bg-blue-400 h-[200px] shadow-md'>
        <InputField 
        type='email' 
        placeholder={'eg: abc12@gmail.com'} 
@@ -29,16 +29,7 @@ const ForgetPassword = () => {
        name='email'
        error={'valid email is required'}
        />
-      <InputField 
-       type='password' 
-       placeholder={'new password'} 
-       title='New Password'
-       setValue={setNewPassword}
-       value ={password}
-       name='password'
-       error={'valid password is required'}
-       />
-       <button onClick={editPassword} className='bg-[#ff5100] border-none rounded-md w-[200px] h-[40px] flex justify-center items-center text-[white]'>Submit</button>
+       <button onClick={editPassword} className='bg-[#ff5100] mt-2 border-none rounded-md w-[200px] h-[40px] flex justify-center items-center text-[white]'>RestPassword</button>
       </div>
     </div>
   )
