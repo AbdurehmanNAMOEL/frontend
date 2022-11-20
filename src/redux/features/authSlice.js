@@ -67,6 +67,7 @@ export const getSeller =createAsyncThunk('user/getUser',async()=>{
 export const updatePassword =createAsyncThunk('user/updatePassword',async({userData,toast})=>{
     try {
          const response = await axios.post(`${basicUrl}home/update`,userData)
+         toast.success('Check your Email')
          return response.data
         
     } catch (error) {
