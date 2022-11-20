@@ -87,7 +87,7 @@ useEffect(()=>{},[isLoggedIn])
       />
 
       <Route 
-       path={'/password:id'} exact  
+       path={'/password/:id'} exact  
        element={<ForgetPassword/>}
       />
       <Route 
