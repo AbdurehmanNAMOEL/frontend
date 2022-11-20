@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useNavigate, useParams } from 'react-router-dom'
 import InputField from '../components/InputField'
-import { updatePassword } from '../redux/features/authSlice'
+import { restPassword} from '../redux/features/authSlice'
 import {toast} from 'react-toastify'
 const ForgetPassword = () => {
     const [newPassword,setNewPassword] =useState('')
@@ -17,7 +17,7 @@ const ForgetPassword = () => {
             password:newPassword,
             confirmPassword:confirmPassword
         }
-        dispatch(updatePassword({userData,navigate,toast}))
+        dispatch(restPassword({id,userData,navigate,toast}))
     }
   return (
     <div className='w-full h-[100vh]  flex justify-center items-center bg-[#a19e9ec0]'>

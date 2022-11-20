@@ -67,6 +67,17 @@ export const getSeller =createAsyncThunk('user/getUser',async()=>{
 export const updatePassword =createAsyncThunk('user/updatePassword',async({userData,navigate,toast})=>{
     try {
          const response = await axios.post(`${basicUrl}home/update`,userData)
+         return response.data
+        
+    } catch (error) {
+        toast.error(error.response.data.error)
+    }
+})
+
+
+export const restPassword =createAsyncThunk('user/restPassword',async({id,userData,navigate,toast})=>{
+    try {
+         const response = await axios.put(`${basicUrl}home/newPassword:${id}`,userData)
          navigate('/login')
          return response.data
         
@@ -143,6 +154,18 @@ const createUserSlice= createSlice({
             state.user= action.payload
         },
          [updatePassword.rejected]:(state,action)=>{
+            state.load=true
+            state.error=' action.payload.message'
+        },
+        
+        [restPassword.pending]:(state,action)=>{
+            state.load=true
+        },
+         [restPassword.fulfilled]:(state,action)=>{
+            state.load=false
+            state.user= action.payload
+        },
+         [restPassword.rejected]:(state,action)=>{
             state.load=true
             state.error=' action.payload.message'
         },
