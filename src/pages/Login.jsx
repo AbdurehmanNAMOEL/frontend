@@ -59,6 +59,12 @@ const Login = () => {
              name='password'
              error={'valid password is required'}
             />
+
+          <span className='sign-up w-[80%] flex  justify-end'>
+            <Link to={'/restPassword'} className='text text-sm text-white '>
+            <span className='text-blue-500'>Forgot Password?</span>
+            </Link>
+          </span>   
           <span className='sign-up w-[80%] flex  justify-end'>
             <Link to={'/signup'} className='text text-sm text-white '>
               you don't have an account? <span className='text-blue-500'>SignUp</span>

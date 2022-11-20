@@ -14,6 +14,7 @@ const SentToEmail = () => {
             email:email
         }
         dispatch(updatePassword({userData,navigate,toast}))
+        setEmail('')
     }
   return (
         <div className='w-full h-[100vh]  flex justify-center items-center bg-[#a19e9ec0]'>

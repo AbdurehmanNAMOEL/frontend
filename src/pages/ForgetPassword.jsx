@@ -16,7 +16,9 @@ const ForgetPassword = () => {
             password:newPassword,
             confirmPassword:confirmPassword
         }
-        dispatch(restPassword({id,userData,navigate,toast}))
+        if(newPassword!==confirmPassword){
+          toast.error('password and confirmPassword are not the same')
+        }else dispatch(restPassword({id,userData,navigate,toast}))
     }
   return (
     <div className='w-full h-[100vh]  flex justify-center items-center bg-[#a19e9ec0]'>
