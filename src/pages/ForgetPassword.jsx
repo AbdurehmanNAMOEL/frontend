@@ -11,7 +11,7 @@ const ForgetPassword = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
      const {id} = useParams()
-
+    console.log(id);
     const editPassword=()=>{
         let userData={
             password:newPassword,

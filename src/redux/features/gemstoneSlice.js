@@ -29,7 +29,6 @@ export const getStone =createAsyncThunk('gemstone/getStone',async()=>{
 
 
 export const deleteStone =createAsyncThunk('gemstone/deleteStone',async({id,toast})=>{
-    console.log(id,'hello')
     try {
          const response = await axios.delete(`https://seller-site.herokuapp.com/home/delete/${id}`)
          toast.success('successfully deleted')
