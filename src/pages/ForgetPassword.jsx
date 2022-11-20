@@ -1,19 +1,21 @@
 import React from 'react'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import InputField from '../components/InputField'
 import { updatePassword } from '../redux/features/authSlice'
 import {toast} from 'react-toastify'
 const ForgetPassword = () => {
-    const [email,setEmail] =useState()
-    const [password,setNewPassword] =useState()
+    const [newPassword,setNewPassword] =useState('')
+    const [confirmPassword,setConfirmPassword] =useState('')
     const dispatch = useDispatch()
     const navigate = useNavigate()
+     const {id} = useParams()
+
     const editPassword=()=>{
         let userData={
-            email:email,
-            password:password
+            password:newPassword,
+            confirmPassword:confirmPassword
         }
         dispatch(updatePassword({userData,navigate,toast}))
     }
@@ -21,15 +23,24 @@ const ForgetPassword = () => {
     <div className='w-full h-[100vh]  flex justify-center items-center bg-[#a19e9ec0]'>
       <div className='w-[300px] md:w-[400px] flex justify-center items-center flex-col bg-blue-400 h-[200px] shadow-md'>
        <InputField 
-       type='email' 
-       placeholder={'eg: abc12@gmail.com'} 
-       title='Email'
-       setValue={setEmail}
-       value ={email}
-       name='email'
-       error={'valid email is required'}
+       type='password' 
+       placeholder={'New password'} 
+       title='New Password'
+       setValue={setNewPassword}
+       value ={newPassword}
+       name='password'
+       error={'valid password is required'}
        />
-       <button onClick={editPassword} className='bg-[#ff5100] mt-2 border-none rounded-md w-[200px] h-[40px] flex justify-center items-center text-[white]'>RestPassword</button>
+      <InputField 
+       type='password' 
+       placeholder={'confirm new password'} 
+       title='ConfirmNewPassword'
+       setValue={setConfirmPassword}
+       value ={confirmPassword}
+       name='password'
+       error={'valid password is required'}
+       />
+       <button onClick={editPassword} className='bg-red-500  mt-2 text-[white] rounded-md w-[200px] h-[40px] flex justify-center items-center'>RestPassword</button>
       </div>
     </div>
   )

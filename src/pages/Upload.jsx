@@ -40,19 +40,19 @@ const Upload = () => {
  
   const handleStoneUpload=()=>{
 
-        const stoneData={
+    const stoneData={
         title:title,
         desc:desc,
         weight:weight,
         image:newImage
     }
-    if(title&& desc && newImage){
 
-    dispatch(uploadStone({stoneData,toast,navigate}))
-    setTitle('')
-    setImage('')
-    setWeight('')
-    setDesc('')
+    if(title&& desc && newImage){
+      dispatch(uploadStone({stoneData,toast,navigate}))
+      setTitle('')
+      setImage('')
+      setWeight('')
+      setDesc('')
    } else toast.error('First fill all the inputs')  
 }
 

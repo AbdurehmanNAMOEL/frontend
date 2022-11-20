@@ -66,7 +66,7 @@ export const getSeller =createAsyncThunk('user/getUser',async()=>{
 
 export const updatePassword =createAsyncThunk('user/updatePassword',async({userData,navigate,toast})=>{
     try {
-         const response = await axios.put(`${basicUrl}home/update`,userData)
+         const response = await axios.post(`${basicUrl}home/update`,userData)
          navigate('/login')
          return response.data
         

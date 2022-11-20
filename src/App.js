@@ -8,6 +8,7 @@ import ForgetPassword from "./pages/ForgetPassword";
 import PageIsNotFound from "./components/PageIsNotFound";
 import { lazy } from "react";
 import Loader from './components/Loader';
+import SentToEmail from './pages/SentToEmail';
 
 const LandingPage = lazy(()=>import('./pages/LandingPage'))
 const Home = lazy(()=>import('./pages/Home'))
@@ -86,8 +87,12 @@ useEffect(()=>{},[isLoggedIn])
       />
 
       <Route 
-       path={'/password'} exact  
+       path={'/password:id'} exact  
        element={<ForgetPassword/>}
+      />
+      <Route 
+       path={'/restPassword'} exact  
+       element={<SentToEmail/>}
       />
 
       <Route exact 
