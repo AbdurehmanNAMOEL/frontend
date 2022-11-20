@@ -77,7 +77,7 @@ export const updatePassword =createAsyncThunk('user/updatePassword',async({userD
 
 
 export const restPassword =createAsyncThunk('user/restPassword',async({id,userData,navigate,toast})=>{
-    console.log(id,userData);
+   
     try {
          const response = await axios.put(`${basicUrl}home/newPassword/${id}`,userData)
          navigate('/login')
