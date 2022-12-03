@@ -1,7 +1,7 @@
 import {createSlice,createAsyncThunk} from '@reduxjs/toolkit'
 import {getAuth,signInWithPopup,GoogleAuthProvider} from 'firebase/auth'
 import axios from 'axios'
-import basicUrl from '../../utils/defaultGemStonesData'
+import { basicUrl } from '../../utils/defaultGemStonesData';
 axios.interceptors.request.use((req)=>{
     if(localStorage.getItem("profile")){
         req.headers.authorization = `Bearer ${(JSON.parse(localStorage.getItem("profile")).token)}`
