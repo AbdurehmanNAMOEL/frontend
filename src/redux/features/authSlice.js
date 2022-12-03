@@ -1,7 +1,7 @@
 import {createSlice,createAsyncThunk} from '@reduxjs/toolkit'
 import {getAuth,signInWithPopup,GoogleAuthProvider} from 'firebase/auth'
 import axios from 'axios'
-
+import basicUrl from '../../utils/defaultGemStonesData'
 axios.interceptors.request.use((req)=>{
     if(localStorage.getItem("profile")){
         req.headers.authorization = `Bearer ${(JSON.parse(localStorage.getItem("profile")).token)}`
@@ -9,7 +9,7 @@ axios.interceptors.request.use((req)=>{
   return req;
 })
 
-const basicUrl= 'https://web-production-e9b8.up.railway.app/'
+
 
 export const createAccount =createAsyncThunk("user/createAccount",async({userData,toast,navigate})=>{
    

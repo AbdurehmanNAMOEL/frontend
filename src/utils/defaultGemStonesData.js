@@ -35,3 +35,5 @@ export const navData=[
     // {"id":"b","title":'DashBoard','link':'/dashBoard'},
     {"id":"e","title":'AboutUs','link':'/aboutUs'}
 ]
+
+export const basicUrl = 'https://web-production-e9b8.up.railway.app/'

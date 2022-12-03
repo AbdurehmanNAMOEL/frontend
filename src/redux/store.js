@@ -18,7 +18,7 @@ const persistedReducer = persistReducer(persistConfig,reducer);
 const store = configureStore({
     reducer:persistedReducer,
     middleware: (getDefaultMiddleware) => getDefaultMiddleware(),
-    
+    devTools:false   
 })
 
 export default store
