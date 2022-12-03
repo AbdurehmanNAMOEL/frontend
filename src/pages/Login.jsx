@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom'
 import {toast} from 'react-toastify'
 import {googleLogIn, logIn } from '../redux/features/authSlice'
 import '../style/login.css'
+import { useEffect } from 'react'
 
 const Login = () => {
 
@@ -17,7 +18,7 @@ const Login = () => {
    const navigate = useNavigate()
    
    const handleSubmit=()=>{
-    alert(user?.name)
+
     const userData = {
       email:email,
       password:password,
@@ -29,8 +30,24 @@ const Login = () => {
 
   const googleSignUp=()=> dispatch(googleLogIn({toast,navigate}))
    
+ const handleKeyDown=(e)=>{
+  if(e.key==='Enter'){
+    handleSubmit()
+  }
+ }
  
- 
+useEffect(()=>{
+  document.addEventListener('keydown',detectKeyDown,true)
+})
+
+const detectKeyDown=(e)=>{
+  if(e.key === 'Enter'){
+    handleSubmit()
+  }if (e.key!=='Enter'){
+    console.log('');
+  }
+}
+
   return (
     <div className='login-container w-[100%]  h-[100vh] flex  justify-center items-center   shadow-md rounded-md bg-[#1616169d] '>  
       <div className='login w-[100%] h-[100vh] gap-[20px] md:h-[80vh] flex flex-col md:flex-row'>
@@ -70,7 +87,11 @@ const Login = () => {
               you don't have an account? <span className='text-blue-500'>SignUp</span>
             </Link>
           </span>
-          <button onClick={handleSubmit} id='btn-login' className='w-[80%] mb-4 h-[40px]  mt-4 flex justify-center items-center bg-blue-400 text-white rounded-md hover:bg-blue-500'>LogIn</button>
+          <button 
+          onClick={handleSubmit} 
+          onKeyDown={detectKeyDown}
+          id='btn-login' 
+          className='w-[80%] mb-4 h-[40px]  mt-4 flex justify-center items-center bg-blue-400 text-white rounded-md hover:bg-blue-500'>LogIn</button>
           {/* <span className='mb-4 text-[white]'>OR</span> */}
       </div>
     </div>      
