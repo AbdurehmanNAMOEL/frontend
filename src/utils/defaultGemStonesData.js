@@ -36,4 +36,4 @@ export const navData=[
     {"id":"e","title":'AboutUs','link':'/aboutUs'}
 ]
 
-export const basicUrl = 'https://web-production-e9b8.up.railway.app/'
+export const basicUrl = 'https://seller-server.onrender.com/'
